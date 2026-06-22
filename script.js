@@ -34,7 +34,10 @@ const PROJECTS = {
         github: 'https://github.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos',
         demo: '',
         video: '',
-        images: [],
+        images: [
+            'https://raw.githubusercontent.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos/master/Gr%C3%A1ficos/5k.png',
+            'https://raw.githubusercontent.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos/master/Gr%C3%A1ficos/zoom_in.png',
+        ],
     },
     brasileirao: {
         gradient: 'linear-gradient(135deg,#059669,#047857)',
