@@ -46,7 +46,7 @@ const PROJECTS = {
         github: 'https://github.com/henriquereolonpain-sys/Inter-166-Analytics',
         demo: '',
         video: '',
-        images: [],
+        images: ['https://raw.githubusercontent.com/henriquereolonpain-sys/Inter-166-Analytics/main/Imgs/Bi.png'],
     },
     dashboard: {
         gradient: 'linear-gradient(135deg,#d97706,#b45309)',
