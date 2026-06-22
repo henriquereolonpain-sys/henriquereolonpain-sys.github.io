@@ -61,7 +61,7 @@ const PROJECTS = {
         title: 'Análise de Elasticidade de Preço',
         subtitle: 'Revenue Forecasting Dinâmico',
         desc: 'Dashboard SQL-integrado no Power BI com design elaborado no Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real. Modela a elasticidade-preço da demanda para prever impacto de variações de preço sobre a receita total, entregando uma ferramenta de tomada de decisão para equipes comerciais.',
-        metrics: [{ num:'⚡', label:'Simulação em tempo real' }, { num:'Kaggle', label:'Dataset público' }],
+        metrics: [{ num:'DAX', label:'Engine de cálculo' }, { num:'Kaggle', label:'Dataset público' }],
         github: '',
         demo: '',
         video: '',
@@ -90,7 +90,7 @@ const PROJECTS = {
 //   emoji → ícone mostrado quando não há imagem
 // ============================================================
 const CERTS = [
-    { label: 'Graduação em Economia', school: 'UPF', img: 'diploma.pdf', emoji: '🏛️' },
+    { label: 'Graduação em Economia', school: 'UPF', img: 'diploma.png', emoji: '🏛️' },
     { label: 'MBA em Desenvolvimento Sustentável e Economia Circular', school: 'UPF', img: 'mba.jpg', emoji: '📜' },
     { label: 'Pós-Graduação em Gestão Financeira', school: 'UPF', img: '', emoji: '🎓' },
     { label: 'CPA-20', school: 'ANBIMA', img: 'cpa.jpeg', emoji: '🏆' },
