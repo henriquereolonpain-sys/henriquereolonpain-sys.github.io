@@ -217,6 +217,7 @@ img { display: block; max-width: 100%; }
 .hero-stats { display: flex; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 .hero-stat { display: flex; flex-direction: column; }
 .stat-number { font-size: 1.375rem; font-weight: 800; color: var(--primary); letter-spacing: -.5px; }
+.stat-number.stat-studying { color: #e8741a; }
 .stat-label  { font-size: .75rem; color: var(--text-light); font-weight: 500; margin-top: .125rem; }
 
 .hero-visual { display: flex; justify-content: flex-end; }
