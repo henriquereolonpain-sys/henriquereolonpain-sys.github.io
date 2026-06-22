@@ -25,7 +25,7 @@ const PROJECTS = {
         title: 'Sistema de Recomendação Híbrido',
         subtitle: 'Next Best Offer — Setor de Cooperativas',
         desc: 'Motor de recomendação financeiro construído com banco de dados orientado a grafos (Neo4j AuraDB) e Python (Pandas), modelando a rede de relacionamentos entre cooperados. Queries otimizadas em Cypher identificam clusters por similaridade de consumo, segmento e faixa de renda. Filtro colaborativo implementado diretamente no banco entrega insights de propensão de compra em milissegundos, aumentando precisão de campanhas de retenção.',
-        metrics: [{ num:'ms', label:'Latência de resposta' }, { num:'Neo4j', label:'AuraDB Cloud' }],
+        metrics: [{ num:'NBO', label:'Next Best Offer' }, { num:'Grafos', label:'Modelagem de rede' }],
         github: 'https://github.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos',
         demo: '',
         video: '',
