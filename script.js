@@ -119,6 +119,86 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ============================================================
+// HERO CANVAS — linhas econômicas animadas (efeito cometa)
+// ============================================================
+(function () {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Wave {
+        constructor() { this.spawn(); }
+
+        spawn() {
+            const h = canvas.height;
+            this.x       = -(100 + Math.random() * 400);
+            this.baseY   = h * (0.08 + Math.random() * 0.84);
+            this.speed   = 0.5 + Math.random() * 1.4;
+            this.amp     = 12 + Math.random() * 55;
+            this.freq    = 0.006 + Math.random() * 0.022;
+            this.tail    = 180 + Math.random() * 280;
+            this.opacity = 0.045 + Math.random() * 0.07;
+            this.phase   = Math.random() * Math.PI * 2;
+            this.choppy  = Math.random() > 0.55;
+            this.lw      = 0.8 + Math.random() * 0.7;
+        }
+
+        draw() {
+            const w = canvas.width;
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const rgb = isDark ? '96,165,250' : '37,99,235';
+            const x0 = this.x - this.tail;
+            const x1 = this.x;
+
+            ctx.beginPath();
+            let first = true;
+            for (let i = 0; i <= 90; i++) {
+                const t  = i / 90;
+                const px = x0 + t * (x1 - x0);
+                if (px < -2 || px > w + 2) { first = true; continue; }
+                let py = this.baseY + Math.sin(px * this.freq + this.phase) * this.amp;
+                if (this.choppy) py += Math.sin(px * this.freq * 3.5 + this.phase * 1.4) * this.amp * 0.28;
+                if (first) { ctx.moveTo(px, py); first = false; }
+                else ctx.lineTo(px, py);
+            }
+
+            const g = ctx.createLinearGradient(x0, 0, x1, 0);
+            g.addColorStop(0,   `rgba(${rgb},0)`);
+            g.addColorStop(0.6, `rgba(${rgb},${this.opacity * 0.4})`);
+            g.addColorStop(1,   `rgba(${rgb},${this.opacity})`);
+            ctx.strokeStyle = g;
+            ctx.lineWidth   = this.lw;
+            ctx.stroke();
+        }
+
+        update() {
+            this.x += this.speed;
+            if (this.x - this.tail > canvas.width) this.spawn();
+        }
+    }
+
+    const waves = Array.from({ length: 14 }, (_, i) => {
+        const w = new Wave();
+        w.x = (i / 14) * canvas.width;
+        return w;
+    });
+
+    function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        waves.forEach(w => { w.update(); w.draw(); });
+        requestAnimationFrame(loop);
+    }
+    loop();
+})();
+
+// ============================================================
 // NAV
 // ============================================================
 const nav       = document.getElementById('nav');

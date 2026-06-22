@@ -175,8 +175,14 @@ img { display: block; max-width: 100%; }
     position: relative; overflow: hidden; padding-top: 64px;
 }
 
-.hero-bg { display: none; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-grid { display: none; }
+
+.hero-canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
 
 .hero-container {
     position: relative; z-index: 1;
@@ -387,7 +393,11 @@ img { display: block; max-width: 100%; }
     box-shadow: var(--shadow); transition: all .3s;
 }
 .skill-category:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.skill-icon       { font-size: 1.75rem; margin-bottom: .875rem; }
+.skill-icon {
+    font-size: 1.5rem; font-weight: 800; letter-spacing: -2px;
+    color: var(--accent); opacity: .18; margin-bottom: .625rem;
+    line-height: 1; font-variant-numeric: tabular-nums;
+}
 .skill-cat-title  { font-size: .9375rem; font-weight: 700; color: var(--primary); margin-bottom: .875rem; }
 .skill-tags       { display: flex; flex-wrap: wrap; gap: .375rem; }
 .skill-tag {
@@ -449,8 +459,15 @@ img { display: block; max-width: 100%; }
 .cert-title  { font-size: .875rem; font-weight: 700; color: var(--primary); margin-bottom: .25rem; line-height: 1.35; }
 .cert-school { font-size: .75rem; color: var(--text-light); font-weight: 500; }
 
+/* ===== FOOTER CHART SVG ===== */
+.footer-chart {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 260px;
+    pointer-events: none;
+}
+
 /* ===== CONTACT ===== */
-.contact-section { background: var(--primary); transition: background .3s; }
+.contact-section { background: var(--primary); transition: background .3s; position: relative; overflow: hidden; }
 .contact-section .section-tag  { background: rgba(219,234,254,.12); color: #93c5fd; }
 .contact-section .section-title { color: #f8fafc; }
 .contact-sub { color: #94a3b8; margin-top: .75rem; font-size: 1rem; }
