@@ -1,0 +1,286 @@
+// ============================================================
+// DADOS DOS PROJETOS
+// Para adicionar conteúdo a um projeto:
+//   github → link do repositório
+//   demo   → link do dashboard publicado
+//   video  → URL de embed do YouTube (ex: 'https://www.youtube.com/embed/SEU_ID')
+//   images → array de caminhos de imagem (ex: ['img/milho-1.jpg', 'img/milho-2.jpg'])
+// ============================================================
+const PROJECTS = {
+    milho: {
+        gradient: 'linear-gradient(135deg,#2563eb,#1d4ed8)',
+        tags: ['Python','BigQuery','GitHub Actions','Econometria','Web Scraping'],
+        title: 'Monitoramento e Previsão Econométrica',
+        subtitle: 'Preço do Milho — Rio Grande do Sul',
+        desc: 'Pipeline ETL automatizado correlacionando o preço do milho com variáveis climáticas regionais via API e Web Scraping. Data Warehouse no Google BigQuery com camadas staging e semântica, orquestrado automaticamente via GitHub Actions. Modelos de regressão econométrica identificaram elasticidade de R$1,25 por 10mm de chuva e lag logístico de 6 dias, com 99% de confiança estatística (p-value 0,007).',
+        metrics: [{ num:'99%', label:'Confiança estatística' }, { num:'p=0.007', label:'P-value do modelo' }],
+        github: 'https://github.com/henriquereolonpain-sys',
+        demo: '',
+        video: '',
+        images: [],
+    },
+    recomendacao: {
+        gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)',
+        tags: ['Neo4j AuraDB','Python','Pandas','Cypher','Graph DB'],
+        title: 'Sistema de Recomendação Híbrido',
+        subtitle: 'Next Best Offer — Setor de Cooperativas',
+        desc: 'Motor de recomendação financeiro construído com banco de dados orientado a grafos (Neo4j AuraDB) e Python (Pandas), modelando a rede de relacionamentos entre cooperados. Queries otimizadas em Cypher identificam clusters por similaridade de consumo, segmento e faixa de renda. Filtro colaborativo implementado diretamente no banco entrega insights de propensão de compra em milissegundos, aumentando precisão de campanhas de retenção.',
+        metrics: [{ num:'ms', label:'Latência de resposta' }, { num:'Neo4j', label:'AuraDB Cloud' }],
+        github: 'https://github.com/henriquereolonpain-sys',
+        demo: '',
+        video: '',
+        images: [],
+    },
+    brasileirao: {
+        gradient: 'linear-gradient(135deg,#059669,#047857)',
+        tags: ['Scikit-learn','Python','Random Forest','Naive Bayes','ML'],
+        title: 'Modelo Preditivo Esportivo',
+        subtitle: 'Brasileirão 2026',
+        desc: 'Pipeline completo de Machine Learning para previsão de resultados do Campeonato Brasileiro com dados históricos. Ciclo completo de ML: coleta, feature engineering, treinamento, validação e comunicação de resultados. Comparação entre Random Forest, Regressão Logística e Naive Bayes com avaliação por matriz de confusão e acurácia, demonstrando domínio do fluxo end-to-end de um projeto de ciência de dados.',
+        metrics: [{ num:'3', label:'Algoritmos comparados' }, { num:'Full', label:'Ciclo ML completo' }],
+        github: 'https://github.com/henriquereolonpain-sys',
+        demo: '',
+        video: '',
+        images: [],
+    },
+    dashboard: {
+        gradient: 'linear-gradient(135deg,#d97706,#b45309)',
+        tags: ['Power BI','SQL','DAX','ETL','FP&A'],
+        title: 'Dashboard Financeiro Executivo',
+        subtitle: 'DRE · Fluxo de Caixa · EBITDA',
+        desc: 'Dashboard entregue mensalmente à diretoria da Agência Gallo consolidando DRE gerencial, fluxo de caixa, EBITDA, ROI e payback. Pipeline com extração do banco de dados transacional, transformação via SQL e carga no Power BI. Inclui apresentações mensais de Expectativa × Realidade e revisões trimestrais de projeções financeiras para suporte a decisões estratégicas dos squads de negócio.',
+        metrics: [{ num:'C-Level', label:'Audiência alvo' }, { num:'Mensal', label:'Cadência de entrega' }],
+        github: '',
+        demo: '',
+        video: '',
+        images: [],
+    },
+    elasticidade: {
+        gradient: 'linear-gradient(135deg,#0891b2,#0e7490)',
+        tags: ['Power BI','SQL','Figma','Elasticidade-preço'],
+        title: 'Análise de Elasticidade de Preço',
+        subtitle: 'Revenue Forecasting Dinâmico',
+        desc: 'Dashboard SQL-integrado no Power BI com design elaborado no Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real. Modela a elasticidade-preço da demanda para prever impacto de variações de preço sobre a receita total, entregando uma ferramenta de tomada de decisão para equipes comerciais.',
+        metrics: [{ num:'⚡', label:'Simulação em tempo real' }, { num:'Kaggle', label:'Dataset público' }],
+        github: '',
+        demo: '',
+        video: '',
+        images: [],
+    },
+    esg: {
+        gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)',
+        tags: ['Power BI','Pearson','ESG','Ibovespa','Mercado de Capitais'],
+        title: 'Correlação ESG × Performance',
+        subtitle: 'Mercado Brasileiro de Capitais',
+        desc: 'Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade (ESG) e retornos no mercado brasileiro. Dashboard com cálculo dinâmico de Alpha vs. Ibovespa por empresa e setor, permitindo análise visual da correlação entre práticas ESG e performance financeira no período analisado.',
+        metrics: [{ num:'α', label:'Alpha dinâmico vs. IBOV' }, { num:'ESG', label:'Foco temático' }],
+        github: '',
+        demo: '',
+        video: '',
+        images: [],
+    },
+};
+
+// ============================================================
+// DADOS DOS CERTIFICADOS
+// Para adicionar um certificado com imagem:
+//   img  → nome do arquivo na pasta Portfolio (ex: 'cert-economia.jpg')
+//   label → nome do diploma/certificado
+//   school → instituição
+//   emoji → ícone mostrado quando não há imagem
+// ============================================================
+const CERTS = [
+    { label: 'Graduação em Economia', school: 'UPF', img: '', emoji: '🏛️' },
+    { label: 'MBA em Desenvolvimento Sustentável e Economia Circular', school: 'UPF', img: '', emoji: '📜' },
+    { label: 'Pós-Graduação em Gestão Financeira', school: 'UPF', img: '', emoji: '🎓' },
+    { label: 'CPA-20', school: 'ANBIMA', img: '', emoji: '🏆' },
+];
+
+// ============================================================
+// DARK MODE
+// ============================================================
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+});
+
+// ============================================================
+// NAV
+// ============================================================
+const nav       = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    highlightActiveSection();
+});
+
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+function highlightActiveSection() {
+    const y = window.scrollY + 80;
+    document.querySelectorAll('section[id]').forEach(sec => {
+        const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
+        if (!link) return;
+        link.classList.toggle('active', y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight);
+    });
+}
+highlightActiveSection();
+
+// ============================================================
+// FADE-IN
+// ============================================================
+const fadeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+
+// ============================================================
+// CERTIFICATES — build grid from data
+// ============================================================
+const certsGrid = document.getElementById('certsGrid');
+
+CERTS.forEach(cert => {
+    const item = document.createElement('div');
+    item.className = 'cert-item';
+
+    const imgHtml = cert.img
+        ? `<img class="cert-img" src="${cert.img}" alt="${cert.label}" loading="lazy">`
+        : `<div class="cert-placeholder">${cert.emoji}</div>`;
+
+    item.innerHTML = `
+        <div class="cert-img-wrap">${imgHtml}</div>
+        <div class="cert-info">
+            <p class="cert-title">${cert.label}</p>
+            <p class="cert-school">${cert.school}</p>
+        </div>
+    `;
+
+    if (cert.img) {
+        const isPdf = cert.img.toLowerCase().endsWith('.pdf');
+        if (isPdf) {
+            // PDFs abrem em nova aba
+            const badge = document.createElement('div');
+            badge.style.cssText = 'position:absolute;top:.5rem;right:.5rem;background:rgba(220,38,38,.85);color:#fff;font-size:.65rem;font-weight:700;padding:.15rem .45rem;border-radius:4px;letter-spacing:.5px;';
+            badge.textContent = 'PDF';
+            item.style.position = 'relative';
+            item.appendChild(badge);
+            item.addEventListener('click', () => window.open(cert.img, '_blank'));
+        } else {
+            item.addEventListener('click', () => openLightbox(cert.img, `${cert.label} · ${cert.school}`));
+        }
+    }
+
+    certsGrid.appendChild(item);
+});
+
+// ============================================================
+// MODAL
+// ============================================================
+const modalOverlay = document.getElementById('modalOverlay');
+const modalInner   = document.getElementById('modalInner');
+const modalClose   = document.getElementById('modalClose');
+
+function openModal(id) {
+    const p = PROJECTS[id];
+    if (!p) return;
+
+    const tagsHtml = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    const metricsHtml = p.metrics.map(m =>
+        `<div class="modal-metric"><span class="modal-metric-num">${m.num}</span><span class="modal-metric-label">${m.label}</span></div>`
+    ).join('');
+
+    let actionsHtml = '';
+    if (p.github || p.demo) {
+        actionsHtml = `<p class="modal-section-title">Links</p><div class="modal-actions">`;
+        if (p.github) actionsHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="modal-action primary">⌥ GitHub</a>`;
+        if (p.demo)   actionsHtml += `<a href="${p.demo}"   target="_blank" rel="noopener" class="modal-action">🔗 Ver Demo</a>`;
+        actionsHtml += `</div>`;
+    }
+
+    let mediaHtml = '';
+    if (p.images.length > 0) {
+        const imgs = p.images.map(src =>
+            `<img class="modal-gallery-img" src="${src}" alt="${p.title}" loading="lazy" data-src="${src}" data-caption="${p.title}">`
+        ).join('');
+        mediaHtml += `<p class="modal-section-title">Imagens</p><div class="modal-gallery">${imgs}</div>`;
+    }
+
+    if (p.video) {
+        mediaHtml += `<p class="modal-section-title">Vídeo</p><iframe class="modal-video" src="${p.video}" allowfullscreen></iframe>`;
+    }
+
+    if (!p.images.length && !p.video) {
+        mediaHtml = `<div class="modal-empty"><strong>Mídia ainda não adicionada</strong>Adicione imagens e/ou vídeo no objeto <code>${id}</code> em <code>script.js</code></div>`;
+    }
+
+    modalInner.innerHTML = `
+        <div class="modal-header" style="background:${p.gradient}"></div>
+        <div class="modal-body">
+            <div class="modal-tags">${tagsHtml}</div>
+            <h2 class="modal-title">${p.title}</h2>
+            <p class="modal-subtitle">${p.subtitle}</p>
+            <p class="modal-desc">${p.desc}</p>
+            <div class="modal-metrics">${metricsHtml}</div>
+            ${actionsHtml}
+            ${mediaHtml}
+        </div>
+    `;
+
+    // Bind gallery image click → lightbox
+    modalInner.querySelectorAll('.modal-gallery-img').forEach(img => {
+        img.addEventListener('click', () => openLightbox(img.dataset.src, img.dataset.caption));
+    });
+
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// Open modal via project card or button click
+document.querySelectorAll('[data-id]').forEach(el => {
+    el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openModal(el.dataset.id);
+    });
+});
+
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeLightbox(); } });
+
+// ============================================================
+// LIGHTBOX
+// ============================================================
+const lightbox        = document.getElementById('lightbox');
+const lightboxImg     = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose   = document.getElementById('lightboxClose');
+
+function openLightbox(src, caption) {
+    lightboxImg.src = src;
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lightboxImg) closeLightbox(); });

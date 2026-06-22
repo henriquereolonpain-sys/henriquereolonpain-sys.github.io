@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henrique Pain — Analista de Dados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">HP<span>.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#certificados">Certificados</a></li>
+                <li><a href="#contato" class="nav-cta">Contato</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-bg"><div class="hero-grid"></div></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">📍 Passo Fundo, RS · Remoto</span>
+                <h1 class="hero-name">Henrique <span>Pain</span></h1>
+                <h2 class="hero-title">Analista de Dados</h2>
+                <p class="hero-desc">
+                    Transformo dados em decisões. Especialista em pipelines ETL/ELT,
+                    Data Warehouse e dashboards que traduzem complexidade financeira
+                    em insights estratégicos.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <a href="https://linkedin.com/in/henrique-pain" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Anos de experiência</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Projetos entregues</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">CPA-20</span>
+                        <span class="stat-label">Certificação ANBIMA</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-stack">
+                    <div class="visual-card vc-1">
+                        <div class="vc-label">Pipeline ETL / ELT</div>
+                        <div class="vc-value">Python · GCP · BigQuery</div>
+                    </div>
+                    <div class="visual-card vc-2">
+                        <div class="vc-label">BI & Dashboards</div>
+                        <div class="vc-value">Power BI · Looker · Tableau</div>
+                    </div>
+                    <div class="visual-card vc-3">
+                        <div class="vc-label">Data Science / ML</div>
+                        <div class="vc-value">Scikit-learn · Econometria</div>
+                    </div>
+                    <div class="visual-card vc-4">
+                        <div class="vc-label">Domínio Financeiro</div>
+                        <div class="vc-value">DRE · FP&A · CPA-20</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#sobre" class="scroll-indicator" aria-label="Rolar para baixo">
+            <span>Role para baixo</span>
+            <div class="scroll-arrow"></div>
+        </a>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Quem sou</span>
+                <h2 class="section-title">Sobre mim</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-photo fade-in">
+                    <div class="photo-placeholder">
+                        <img src="foto.jpg" alt="Henrique Pain" class="profile-photo">
+                    </div>
+                    <div class="about-chips">
+                        <a href="mailto:henrique.reolon.pain@gmail.com" class="chip">✉ Email</a>
+                        <a href="https://linkedin.com/in/henrique-pain" target="_blank" rel="noopener" class="chip">in LinkedIn</a>
+                        <a href="https://github.com/henriquereolonpain-sys" target="_blank" rel="noopener" class="chip">⌥ GitHub</a>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <p class="about-lead">Analista de Dados com sólida base em Economia e Finanças corporativas.</p>
+                    <p>Meu diferencial está em unir domínio técnico de dados — ETL, Data Warehouse, Machine Learning — com profundo conhecimento do negócio financeiro. Isso me permite traduzir requisitos de negócio em arquiteturas que geram valor real, entregando dashboards e insights que chegam à mesa de quem decide.</p>
+                    <p>Ao longo de mais de 4 anos atuei em finanças corporativas em contextos que vão de startups a multinacionais, incluindo experiência em Lisboa, Portugal, antes de direcionar minha carreira para engenharia e análise de dados.</p>
+                    <p>Inglês fluente &nbsp;·&nbsp; CPA-20 (ANBIMA) &nbsp;·&nbsp; Apaixonado por econometria aplicada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJETOS ===== -->
+    <section class="section section-alt" id="projetos">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Portfólio técnico</span>
+                <h2 class="section-title">Projetos</h2>
+            </div>
+            <div class="projects-grid">
+
+                <article class="project-card fade-in" data-id="milho">
+                    <div class="project-accent" style="--c1:#2563eb;--c2:#1d4ed8"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Python</span><span class="tag">BigQuery</span>
+                            <span class="tag">GitHub Actions</span><span class="tag">Econometria</span>
+                        </div>
+                        <h3 class="project-title">Monitoramento e Previsão Econométrica</h3>
+                        <p class="project-subtitle">Preço do Milho — Rio Grande do Sul</p>
+                        <p class="project-desc">Pipeline ETL automatizado correlacionando o preço do milho com variáveis climáticas regionais. Data Warehouse no BigQuery com camadas staging e semântica, orquestrado via GitHub Actions. Modelos de regressão com 99% de confiança estatística e p-value de 0,007.</p>
+                        <div class="project-highlights">
+                            <div class="highlight"><span class="highlight-num">99%</span><span class="highlight-label">Confiança estatística</span></div>
+                            <div class="highlight"><span class="highlight-num">p=0.007</span><span class="highlight-label">P-value do modelo</span></div>
+                        </div>
+                        <button class="btn-project" data-id="milho">Ver Projeto →</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in" data-id="recomendacao">
+                    <div class="project-accent" style="--c1:#7c3aed;--c2:#6d28d9"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Neo4j</span><span class="tag">Python</span>
+                            <span class="tag">Cypher</span><span class="tag">Graph DB</span>
+                        </div>
+                        <h3 class="project-title">Sistema de Recomendação Híbrido</h3>
+                        <p class="project-subtitle">Next Best Offer — Setor de Cooperativas</p>
+                        <p class="project-desc">Motor de recomendação financeiro com banco de dados orientado a grafos (Neo4j AuraDB), modelando rede de relacionamentos entre cooperados. Filtro colaborativo implementado diretamente no banco para identificar clusters por similaridade de consumo e faixa de renda.</p>
+                        <div class="project-highlights">
+                            <div class="highlight"><span class="highlight-num">ms</span><span class="highlight-label">Latência de resposta</span></div>
+                            <div class="highlight"><span class="highlight-num">Neo4j</span><span class="highlight-label">AuraDB Cloud</span></div>
+                        </div>
+                        <button class="btn-project" data-id="recomendacao">Ver Projeto →</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in" data-id="brasileirao">
+                    <div class="project-accent" style="--c1:#059669;--c2:#047857"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Scikit-learn</span><span class="tag">Python</span>
+                            <span class="tag">ML</span><span class="tag">Classificação</span>
+                        </div>
+                        <h3 class="project-title">Modelo Preditivo Esportivo</h3>
+                        <p class="project-subtitle">Brasileirão 2026</p>
+                        <p class="project-desc">Pipeline completo de Machine Learning para previsão de resultados do Campeonato Brasileiro. Comparação de múltiplos algoritmos (Random Forest, Regressão Logística, Naive Bayes) com feature engineering, treinamento e avaliação por matriz de confusão.</p>
+                        <div class="project-highlights">
+                            <div class="highlight"><span class="highlight-num">3</span><span class="highlight-label">Algoritmos comparados</span></div>
+                            <div class="highlight"><span class="highlight-num">Full</span><span class="highlight-label">Ciclo ML completo</span></div>
+                        </div>
+                        <button class="btn-project" data-id="brasileirao">Ver Projeto →</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in" data-id="dashboard">
+                    <div class="project-accent" style="--c1:#d97706;--c2:#b45309"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span><span class="tag">SQL</span>
+                            <span class="tag">DAX</span><span class="tag">Finanças</span>
+                        </div>
+                        <h3 class="project-title">Dashboard Financeiro Executivo</h3>
+                        <p class="project-subtitle">DRE · Fluxo de Caixa · EBITDA</p>
+                        <p class="project-desc">Dashboard entregue à diretoria da Agência Gallo com DRE gerencial, fluxo de caixa, EBITDA, ROI e payback. Pipeline com extração do banco transacional, transformação SQL e carga no Power BI. Apresentações mensais de Expectativa × Realidade.</p>
+                        <div class="project-highlights">
+                            <div class="highlight"><span class="highlight-num">C-Level</span><span class="highlight-label">Audiência alvo</span></div>
+                            <div class="highlight"><span class="highlight-num">Mensal</span><span class="highlight-label">Cadência de entrega</span></div>
+                        </div>
+                        <button class="btn-project" data-id="dashboard">Ver Projeto →</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in" data-id="elasticidade">
+                    <div class="project-accent" style="--c1:#0891b2;--c2:#0e7490"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span><span class="tag">SQL</span>
+                            <span class="tag">Figma</span><span class="tag">Elasticidade</span>
+                        </div>
+                        <h3 class="project-title">Análise de Elasticidade de Preço</h3>
+                        <p class="project-subtitle">Revenue Forecasting Dinâmico</p>
+                        <p class="project-desc">Dashboard SQL-integrado no Power BI com design Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real com base em elasticidade-preço da demanda.</p>
+                        <div class="project-highlights">
+                            <div class="highlight"><span class="highlight-num">⚡</span><span class="highlight-label">Simulação em tempo real</span></div>
+                            <div class="highlight"><span class="highlight-num">Kaggle</span><span class="highlight-label">Dataset público</span></div>
+                        </div>
+                        <button class="btn-project" data-id="elasticidade">Ver Projeto →</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in" data-id="esg">
+                    <div class="project-accent" style="--c1:#dc2626;--c2:#b91c1c"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span><span class="tag">Pearson</span>
+                            <span class="tag">ESG</span><span class="tag">Ibovespa</span>
+                        </div>
+                        <h3 class="project-title">Correlação ESG × Performance</h3>
+                        <p class="project-subtitle">Mercado Brasileiro de Capitais</p>
+                        <p class="project-desc">Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade e retornos no mercado brasileiro, com cálculo dinâmico de Alpha vs. Ibovespa.</p>
+                        <div class="project-highlights">
+                            <div class="highlight"><span class="highlight-num">α</span><span class="highlight-label">Alpha dinâmico</span></div>
+                            <div class="highlight"><span class="highlight-num">ESG</span><span class="highlight-label">Foco temático</span></div>
+                        </div>
+                        <button class="btn-project" data-id="esg">Ver Projeto →</button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIÊNCIA ===== -->
+    <section class="section" id="experiencia">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Trajetória</span>
+                <h2 class="section-title">Experiência Profissional</h2>
+            </div>
+            <div class="timeline">
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker current"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Analista de Dados & Coord. Financeiro</h3>
+                                <p class="timeline-company">Agência Gallo</p>
+                            </div>
+                            <span class="timeline-date">Mai 2024 — Presente</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Estruturei pipeline mensal de consolidação de dados com extração, transformação SQL e carga no Power BI para dashboards de DRE, EBITDA, ROI e fluxo de caixa</li>
+                            <li>Conduzi apresentações mensais de resultados (Expectativa × Realidade) e revisões trimestrais de projeções para a diretoria</li>
+                            <li>Arquitetei os controles financeiros iniciais da empresa (DRE gerencial e fluxo de caixa), estabelecendo a base de governança de dados</li>
+                            <li>Liderei equipe de desenvolvimento de produto com metodologia Agile, reduzindo lead time de entregas</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Power BI</span><span class="tag">SQL</span>
+                            <span class="tag">Pipeline ETL</span><span class="tag">FP&A</span><span class="tag">Agile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Coordenador Financeiro</h3>
+                                <p class="timeline-company">Amor Saúde</p>
+                            </div>
+                            <span class="timeline-date">Set 2023 — Dez 2023</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Gerenciei operações de fluxo de caixa e elaborei relatórios financeiros estratégicos para a diretoria</li>
+                            <li>Foco em otimização de custos e governança financeira</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Fluxo de Caixa</span><span class="tag">Relatórios Executivos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Assistente Financeiro</h3>
+                                <p class="timeline-company">Teleperformance &nbsp;·&nbsp; Lisboa, Portugal 🇵🇹</p>
+                            </div>
+                            <span class="timeline-date">Out 2022 — Ago 2023</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Conduzi auditorias financeiras e gestão de contas em ambiente multinacional</li>
+                            <li>Assegurei qualidade e conformidade dos dados financeiros com controles de acesso (RBAC)</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Auditoria</span><span class="tag">RBAC</span><span class="tag">Multinacional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Coordenador & Especialista Contábil</h3>
+                                <p class="timeline-company">SilvérioIR</p>
+                            </div>
+                            <span class="timeline-date">Jan 2021 — Ago 2022</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Coordenei rotinas tributárias complexas (IRPF e Criptoativos)</li>
+                            <li>Garanti governança de dados em operações financeiras e conformidade fiscal</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">IRPF</span><span class="tag">Criptoativos</span><span class="tag">Governança Fiscal</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section class="section section-alt" id="habilidades">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Stack técnica</span>
+                <h2 class="section-title">Habilidades</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">🐍</div>
+                    <h3 class="skill-cat-title">Linguagens</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">Python</span><span class="skill-tag primary">SQL</span>
+                        <span class="skill-tag">Pandas</span><span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Cypher (Neo4j)</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">📊</div>
+                    <h3 class="skill-cat-title">BI & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">Power BI</span><span class="skill-tag">Looker</span>
+                        <span class="skill-tag">Tableau</span><span class="skill-tag">Excel Avançado</span>
+                        <span class="skill-tag">DAX</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">⚙️</div>
+                    <h3 class="skill-cat-title">Engenharia de Dados</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">ETL / ELT</span><span class="skill-tag primary">Data Warehouse</span>
+                        <span class="skill-tag">Lakehouse</span><span class="skill-tag">Data Quality</span>
+                        <span class="skill-tag">Governança</span><span class="skill-tag">Observabilidade</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">☁️</div>
+                    <h3 class="skill-cat-title">Cloud & Orquestração</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">Google Cloud Platform</span>
+                        <span class="skill-tag primary">BigQuery</span>
+                        <span class="skill-tag">GitHub Actions</span><span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Neo4j AuraDB</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">🤖</div>
+                    <h3 class="skill-cat-title">Data Science</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">Machine Learning</span>
+                        <span class="skill-tag">Random Forest</span><span class="skill-tag">Regressão Logística</span>
+                        <span class="skill-tag">Modelos Econométricos</span><span class="skill-tag">Feature Engineering</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">💼</div>
+                    <h3 class="skill-cat-title">Negócios & Finanças</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag primary">CPA-20</span><span class="skill-tag primary">DRE</span>
+                        <span class="skill-tag">FP&A</span><span class="skill-tag">Fluxo de Caixa</span>
+                        <span class="skill-tag">Gestão de Riscos</span><span class="skill-tag">EBITDA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORMAÇÃO ===== -->
+    <section class="section" id="formacao">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Acadêmico</span>
+                <h2 class="section-title">Formação</h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card current-edu fade-in">
+                    <div class="edu-status">Em andamento</div>
+                    <div class="edu-icon">🎓</div>
+                    <h3 class="edu-title">Pós-Graduação em Gestão Financeira</h3>
+                    <p class="edu-school">UPF — Universidade de Passo Fundo</p>
+                    <p class="edu-period">2025 — Presente</p>
+                </div>
+                <div class="edu-card fade-in">
+                    <div class="edu-icon">📜</div>
+                    <h3 class="edu-title">MBA em Desenvolvimento Sustentável e Economia Circular</h3>
+                    <p class="edu-school">UPF — Universidade de Passo Fundo</p>
+                    <p class="edu-period">2024</p>
+                </div>
+                <div class="edu-card fade-in">
+                    <div class="edu-icon">🏛️</div>
+                    <h3 class="edu-title">Graduação em Economia</h3>
+                    <p class="edu-school">UPF — Universidade de Passo Fundo</p>
+                    <p class="edu-period">2017 — 2021</p>
+                </div>
+                <div class="edu-card cert-card fade-in">
+                    <div class="edu-icon">🏆</div>
+                    <h3 class="edu-title">CPA-20</h3>
+                    <p class="edu-school">ANBIMA</p>
+                    <p class="edu-period">2025</p>
+                    <p class="edu-desc">Certificação Profissional em Investimentos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICADOS ===== -->
+    <section class="section section-alt" id="certificados">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Diplomas & Conquistas</span>
+                <h2 class="section-title">Certificados</h2>
+                <p class="certs-hint">Clique em um certificado para ampliar</p>
+            </div>
+            <div class="certs-grid fade-in" id="certsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="section contact-section" id="contato">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Vamos conversar</span>
+                <h2 class="section-title">Contato</h2>
+                <p class="contact-sub">Aberto a oportunidades remotas em dados, BI e engenharia analítica.</p>
+            </div>
+            <div class="social-grid fade-in">
+                <a href="mailto:henrique.reolon.pain@gmail.com" class="social-card">
+                    <div class="social-icon email-icon">✉</div>
+                    <div class="social-info">
+                        <span class="social-label">Email</span>
+                        <span class="social-value">henrique.reolon.pain@gmail.com</span>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/henrique-pain" target="_blank" rel="noopener" class="social-card">
+                    <div class="social-icon linkedin-icon">in</div>
+                    <div class="social-info">
+                        <span class="social-label">LinkedIn</span>
+                        <span class="social-value">linkedin.com/in/henrique-pain</span>
+                    </div>
+                </a>
+                <a href="https://github.com/henriquereolonpain-sys" target="_blank" rel="noopener" class="social-card">
+                    <div class="social-icon github-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </div>
+                    <div class="social-info">
+                        <span class="social-label">GitHub</span>
+                        <span class="social-value">github.com/henriquereolonpain-sys</span>
+                    </div>
+                </a>
+                <a href="tel:+5554981293329" class="social-card">
+                    <div class="social-icon phone-icon">📱</div>
+                    <div class="social-info">
+                        <span class="social-label">Telefone</span>
+                        <span class="social-value">(54) 98129-3329</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Henrique Pain &nbsp;·&nbsp; Passo Fundo, RS</p>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modalClose" aria-label="Fechar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <div id="modalInner"></div>
+        </div>
+    </div>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
