@@ -70,7 +70,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: '',
-        images: ['thumb-elasticidade.jpg'],
+        images: ['elasticidade.png'],
     },
     esg: {
         gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)',
@@ -82,7 +82,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: '',
-        images: ['thumb-esg.jpg'],
+        images: ['esg.png'],
     },
 };
 
