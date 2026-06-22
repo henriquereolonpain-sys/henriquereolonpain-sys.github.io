@@ -58,7 +58,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: '',
-        images: ['thumb-dashboard.jpg'],
+        images: ['DRE-1.png', 'DRE-2.png'],
     },
     elasticidade: {
         gradient: 'linear-gradient(135deg,#0891b2,#0e7490)',
