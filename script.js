@@ -17,7 +17,12 @@ const PROJECTS = {
         github: 'https://github.com/henriquereolonpain-sys/monitor-clima-pf',
         demo: '',
         video: '',
-        images: [],
+        images: [
+            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/dashboard_milho.png',
+            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/dados_looker_webscrapi.png',
+            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/OLS.png',
+            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/causalidade_granger.png',
+        ],
     },
     recomendacao: {
         gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)',
@@ -53,7 +58,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: '',
-        images: [],
+        images: ['thumb-dashboard.jpg'],
     },
     elasticidade: {
         gradient: 'linear-gradient(135deg,#0891b2,#0e7490)',
@@ -65,7 +70,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: '',
-        images: [],
+        images: ['thumb-elasticidade.jpg'],
     },
     esg: {
         gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)',
@@ -77,7 +82,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: '',
-        images: [],
+        images: ['thumb-esg.jpg'],
     },
 };
 

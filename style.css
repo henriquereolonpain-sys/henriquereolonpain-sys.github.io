@@ -463,7 +463,7 @@ img { display: block; max-width: 100%; }
 .social-card:hover { background: rgba(255,255,255,.13); border-color: rgba(255,255,255,.22); transform: translateY(-2px); }
 .social-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.125rem; font-weight: 800; flex-shrink: 0; }
 .email-icon    { background: rgba(239,68,68,.2);  color: #fca5a5; }
-.linkedin-icon { background: rgba(37,99,235,.3);  color: #93c5fd; font-family: Georgia,serif; font-style: italic; font-size: 1.25rem; }
+.linkedin-icon { background: rgba(37,99,235,.3);  color: #93c5fd; }
 .github-icon   { background: rgba(255,255,255,.1); color: #e2e8f0; }
 .phone-icon    { background: rgba(34,197,94,.2); }
 .social-info   { display: flex; flex-direction: column; }
