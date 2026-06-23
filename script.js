@@ -18,10 +18,11 @@ const PROJECTS = {
         demo: '',
         video: '',
         images: [
-            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/dashboard_milho.png',
-            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/dados_looker_webscrapi.png',
-            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/OLS.png',
-            'https://raw.githubusercontent.com/henriquereolonpain-sys/monitor-clima-pf/main/causalidade_granger.png',
+            'choques.png',
+            'variancia.png',
+            'heatmap.png',
+            'pipeline.webp',
+            'previsão.png',
         ],
     },
     recomendacao: {
@@ -60,7 +61,7 @@ const PROJECTS = {
         metrics: [{ num:'C-Level', label:'Audiência alvo' }, { num:'Mensal', label:'Cadência de entrega' }],
         github: '',
         demo: '',
-        video: '',
+        video: 'https://player.vimeo.com/video/1156282442',
         images: ['DRE-1.png', 'DRE-2.png'],
     },
     elasticidade: {
@@ -72,7 +73,7 @@ const PROJECTS = {
         metrics: [{ num:'DAX', label:'Engine de cálculo' }, { num:'Kaggle', label:'Dataset público' }],
         github: '',
         demo: '',
-        video: '',
+        video: 'https://player.vimeo.com/video/1156833912',
         images: ['elasticidade.png'],
     },
     esg: {
@@ -84,7 +85,7 @@ const PROJECTS = {
         metrics: [{ num:'α', label:'Alpha dinâmico vs. IBOV' }, { num:'ESG', label:'Foco temático' }],
         github: '',
         demo: '',
-        video: '',
+        video: 'https://player.vimeo.com/video/1158507583',
         images: ['esg.png'],
     },
 };
