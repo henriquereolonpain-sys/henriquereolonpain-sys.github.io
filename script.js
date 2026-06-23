@@ -332,7 +332,11 @@ function translatePage(lang) {
     // Hero botões
     const heroActions = document.querySelectorAll('.hero-actions .btn');
     if (heroActions[0]) heroActions[0].textContent = i ? 'View Projects' : 'Ver Projetos';
-    if (heroActions[2]) heroActions[2].textContent = i ? '↓ Download CV' : '↓ Baixar CV';
+    if (heroActions[2]) {
+        heroActions[2].textContent = i ? '↓ Download CV' : '↓ Baixar CV';
+        heroActions[2].href = i ? 'CV_Henrique_Pain_EN.pdf' : 'CV_Henrique_Pain.pdf';
+        heroActions[2].setAttribute('download', i ? 'CV_Henrique_Pain_EN.pdf' : 'CV_Henrique_Pain.pdf');
+    }
 
     // "Ver Projeto →" nos cards
     document.querySelectorAll('.btn-project').forEach(b => { b.textContent = i ? 'View Project →' : 'Ver Projeto →'; });
