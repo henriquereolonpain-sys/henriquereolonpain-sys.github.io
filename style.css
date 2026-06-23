@@ -145,7 +145,7 @@ img { display: block; max-width: 100%; }
 }
 
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 44px; width: auto; display: block; object-fit: contain; }
+.nav-logo-img { height: 44px; width: auto; display: block; object-fit: contain; mix-blend-mode: multiply; }
 
 .nav-links { display: flex; align-items: center; gap: .125rem; }
 .nav-links a {
