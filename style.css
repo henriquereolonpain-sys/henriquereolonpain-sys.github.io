@@ -132,7 +132,7 @@ img { display: block; max-width: 100%; }
 /* ===== NAV ===== */
 .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(220,225,232,.96);
+    background: rgba(248,250,252,.92);
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     transition: box-shadow .3s, background .3s, border-color .3s;
