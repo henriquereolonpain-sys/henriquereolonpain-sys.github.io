@@ -18,11 +18,11 @@ const PROJECTS = {
         demo: '',
         video: '',
         images: [
-            'choques.png',
-            'variancia.png',
-            'heatmap.png',
-            'pipeline.webp',
-            'previsão.png',
+            'img/choques.png',
+            'img/variancia.png',
+            'img/heatmap.png',
+            'img/pipeline.webp',
+            'img/previsão.png',
         ],
     },
     recomendacao: {
@@ -62,7 +62,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: 'https://player.vimeo.com/video/1156282442',
-        images: ['DRE-1.png', 'DRE-2.png'],
+        images: ['img/DRE-1.png', 'img/DRE-2.png'],
     },
     elasticidade: {
         gradient: 'linear-gradient(135deg,#0891b2,#0e7490)',
@@ -74,7 +74,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: 'https://player.vimeo.com/video/1156833912',
-        images: ['elasticidade.png'],
+        images: ['img/elasticidade.png'],
     },
     esg: {
         gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)',
@@ -86,7 +86,7 @@ const PROJECTS = {
         github: '',
         demo: '',
         video: 'https://player.vimeo.com/video/1158507583',
-        images: ['esg.png'],
+        images: ['img/esg.png'],
     },
 };
 
@@ -99,10 +99,10 @@ const PROJECTS = {
 //   emoji → ícone mostrado quando não há imagem
 // ============================================================
 const CERTS = [
-    { label: 'Graduação em Economia', school: 'UPF', img: 'diploma.png', emoji: '🏛️' },
-    { label: 'MBA em Desenvolvimento Sustentável e Economia Circular', school: 'UPF', img: 'mba.jpg', emoji: '📜' },
+    { label: 'Graduação em Economia', school: 'UPF', img: 'img/diploma.png', emoji: '🏛️' },
+    { label: 'MBA em Desenvolvimento Sustentável e Economia Circular', school: 'UPF', img: 'img/mba.jpg', emoji: '📜' },
     { label: 'Pós-Graduação em Gestão Financeira', school: 'UPF', img: '', emoji: '🎓' },
-    { label: 'CPA-20', school: 'ANBIMA', img: 'cpa.jpeg', emoji: '🏆' },
+    { label: 'CPA-20', school: 'ANBIMA', img: 'img/cpa.jpeg', emoji: '🏆' },
 ];
 
 // ============================================================
