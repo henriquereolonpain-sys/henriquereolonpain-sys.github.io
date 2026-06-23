@@ -15,8 +15,8 @@ const PROJECTS = {
         desc: 'Pipeline ETL automatizado correlacionando o preço do milho com variáveis climáticas regionais via API e Web Scraping. Data Warehouse no Google BigQuery com camadas staging e semântica, orquestrado automaticamente via GitHub Actions. Modelos de regressão econométrica identificaram elasticidade de R$1,25 por 10mm de chuva e lag logístico de 6 dias, com 99% de confiança estatística (p-value 0,007).',
         metrics: [{ num:'99%', label:'Confiança estatística' }, { num:'p=0.007', label:'P-value do modelo' }],
         github: 'https://github.com/henriquereolonpain-sys/monitor-clima-pf',
-        demo: '',
-        video: '',
+        demo: '', video: '',
+        desc_en: 'Automated ETL pipeline correlating corn prices with regional climate variables via API and Web Scraping. Data Warehouse on Google BigQuery with staging and semantic layers, orchestrated via GitHub Actions. Econometric regression models identified R$1.25 elasticity per 10mm of rainfall and a 6-day logistics lag, with 99% statistical confidence (p-value 0.007).',
         images: [
             'img/choques.png',
             'img/variancia.png',
@@ -33,9 +33,9 @@ const PROJECTS = {
         desc: 'Pipeline de dados com arquitetura Medallion implementado no Databricks Community Edition. Ingestão de CSVs na camada Bronze, limpeza e transformações com PySpark na Silver, e visões analíticas prontas para consumo na Gold. Projeto demonstra domínio de arquitetura moderna de Data Lakehouse.',
         metrics: [{ num:'3', label:'Camadas Medallion' }, { num:'Δ', label:'Delta Lake' }],
         github: 'https://github.com/henriquereolonpain-sys/Projeto_03',
-        demo: '',
-        video: '',
+        demo: '', video: '',
         images: ['img/runbricks.png', 'img/runjobbricks.png', 'img/dashboardbricks.png'],
+        desc_en: 'Data pipeline with Medallion Architecture (Bronze → Silver → Gold) implemented in Databricks Community Edition. CSV ingestion at the Bronze layer, PySpark cleaning and transformations at Silver, and analytics-ready semantic views at the Gold layer. Demonstrates mastery of modern Data Lakehouse architecture.',
     },
     recomendacao: {
         gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)',
@@ -45,8 +45,8 @@ const PROJECTS = {
         desc: 'Motor de recomendação financeiro construído com banco de dados orientado a grafos (Neo4j AuraDB) e Python (Pandas), modelando a rede de relacionamentos entre cooperados. Queries otimizadas em Cypher identificam clusters por similaridade de consumo, segmento e faixa de renda. Filtro colaborativo implementado diretamente no banco entrega insights de propensão de compra em milissegundos, aumentando precisão de campanhas de retenção.',
         metrics: [{ num:'NBO', label:'Next Best Offer' }, { num:'Grafos', label:'Modelagem de rede' }],
         github: 'https://github.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos',
-        demo: '',
-        video: '',
+        demo: '', video: '',
+        desc_en: 'Financial recommendation engine built with graph database (Neo4j AuraDB) and Python (Pandas), modeling the relationship network between credit union members. Optimized Cypher queries identify clusters by consumption similarity, segment and income range. Collaborative filtering delivers purchase propensity insights in milliseconds, improving retention campaign accuracy.',
         images: [
             'https://raw.githubusercontent.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos/master/Gr%C3%A1ficos/5k.png',
             'https://raw.githubusercontent.com/henriquereolonpain-sys/Projeto-Neo4-an-lise-Next-Best-Offer-NBO-com-Grafos/master/Gr%C3%A1ficos/zoom_in.png',
@@ -60,8 +60,8 @@ const PROJECTS = {
         desc: 'Pipeline completo de Machine Learning para previsão de resultados do Campeonato Brasileiro com dados históricos. Ciclo completo de ML: coleta, feature engineering, treinamento, validação e comunicação de resultados. Comparação entre Random Forest, Regressão Logística e Naive Bayes com avaliação por matriz de confusão e acurácia, demonstrando domínio do fluxo end-to-end de um projeto de ciência de dados.',
         metrics: [{ num:'3', label:'Algoritmos comparados' }, { num:'Full', label:'Ciclo ML completo' }],
         github: 'https://github.com/henriquereolonpain-sys/Inter-166-Analytics',
-        demo: '',
-        video: 'https://player.vimeo.com/video/1175155235',
+        demo: '', video: 'https://player.vimeo.com/video/1175155235',
+        desc_en: 'Complete Machine Learning pipeline for predicting Brazilian Championship match results. Full ML cycle: data collection, feature engineering, training, validation and communication. Comparison between Random Forest, Logistic Regression and Naive Bayes with confusion matrix and accuracy evaluation.',
         images: [],
     },
     dashboard: {
@@ -71,9 +71,8 @@ const PROJECTS = {
         subtitle: 'DRE · Fluxo de Caixa · EBITDA',
         desc: 'Dashboard entregue mensalmente à diretoria da Agência Gallo consolidando DRE gerencial, fluxo de caixa, EBITDA, ROI e payback. Pipeline com extração do banco de dados transacional, transformação via SQL e carga no Power BI. Inclui apresentações mensais de Expectativa × Realidade e revisões trimestrais de projeções financeiras para suporte a decisões estratégicas dos squads de negócio.',
         metrics: [{ num:'C-Level', label:'Audiência alvo' }, { num:'Mensal', label:'Cadência de entrega' }],
-        github: '',
-        demo: '',
-        video: 'https://player.vimeo.com/video/1156282442',
+        github: '', demo: '', video: 'https://player.vimeo.com/video/1156282442',
+        desc_en: 'Dashboard delivered monthly to the board of Agência Gallo consolidating managerial P&L, cash flow, EBITDA, ROI and payback. Pipeline with extraction from the transactional database, SQL transformation and Power BI load. Includes monthly Expectations vs. Actuals presentations and quarterly forecast reviews to support strategic decisions.',
         images: ['img/DRE-1.png', 'img/DRE-2.png'],
     },
     elasticidade: {
@@ -83,9 +82,8 @@ const PROJECTS = {
         subtitle: 'Revenue Forecasting Dinâmico',
         desc: 'Dashboard SQL-integrado no Power BI com design elaborado no Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real. Modela a elasticidade-preço da demanda para prever impacto de variações de preço sobre a receita total, entregando uma ferramenta de tomada de decisão para equipes comerciais.',
         metrics: [{ num:'DAX', label:'Engine de cálculo' }, { num:'Kaggle', label:'Dataset público' }],
-        github: '',
-        demo: '',
-        video: 'https://player.vimeo.com/video/1156833912',
+        github: '', demo: '', video: 'https://player.vimeo.com/video/1156833912',
+        desc_en: 'SQL-integrated Power BI dashboard with Figma design, enabling real-time pricing scenario simulation and revenue projection. Models price-demand elasticity to forecast the impact of price variations on total revenue, delivering a decision-making tool for commercial teams.',
         images: ['img/elasticidade.png'],
     },
     esg: {
@@ -95,9 +93,8 @@ const PROJECTS = {
         subtitle: 'Mercado Brasileiro de Capitais',
         desc: 'Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade (ESG) e retornos no mercado brasileiro. Dashboard com cálculo dinâmico de Alpha vs. Ibovespa por empresa e setor, permitindo análise visual da correlação entre práticas ESG e performance financeira no período analisado.',
         metrics: [{ num:'α', label:'Alpha dinâmico vs. IBOV' }, { num:'ESG', label:'Foco temático' }],
-        github: '',
-        demo: '',
-        video: '',
+        github: '', demo: '', video: '',
+        desc_en: 'Interactive study using Pearson coefficient to demonstrate the relationship between ESG sustainability criteria and returns in the Brazilian market. Dashboard with dynamic Alpha vs. Ibovespa calculation by company and sector, allowing visual analysis of the correlation between ESG practices and financial performance.',
         images: ['img/esg.png'],
     },
 };
@@ -118,8 +115,230 @@ const CERTS = [
 ];
 
 // ============================================================
+// I18N — TRADUÇÃO PT / EN
+// ============================================================
+let currentLang = localStorage.getItem('lang') || 'pt';
+
+// Simples: [texto-pt, texto-en]
+const PAGE_TRANS = {
+    // NAV
+    '.nav-links a[href="#sobre"]':        ['Sobre','About'],
+    '.nav-links a[href="#projetos"]':     ['Projetos','Projects'],
+    '.nav-links a[href="#experiencia"]':  ['Experiência','Experience'],
+    '.nav-links a[href="#habilidades"]':  ['Habilidades','Skills'],
+    '.nav-links a[href="#formacao"]':     ['Formação','Education'],
+    '.nav-links a[href="#certificados"]': ['Certificados','Certificates'],
+    '.nav-links a[href="#contato"]':      ['Contato','Contact'],
+    '.footer-nav a[href="#sobre"]':       ['Sobre','About'],
+    '.footer-nav a[href="#projetos"]':    ['Projetos','Projects'],
+    '.footer-nav a[href="#experiencia"]': ['Experiência','Experience'],
+    '.footer-nav a[href="#habilidades"]': ['Habilidades','Skills'],
+    '.footer-nav a[href="#contato"]':     ['Contato','Contact'],
+    // HERO
+    '.hero-badge':              ['📍 Passo Fundo, RS · Remoto','📍 Passo Fundo, RS · Remote'],
+    '.hero-title':              ['Analista de Dados','Data Analyst'],
+    '.hero-desc':               ['Transformo dados em decisões. Especialista em pipelines ETL/ELT, Data Warehouse e dashboards que traduzem complexidade financeira em insights estratégicos.','I turn data into decisions. Specialist in ETL/ELT pipelines, Data Warehouse and dashboards that translate financial complexity into strategic insights.'],
+    '.scroll-indicator span':   ['Role para baixo','Scroll down'],
+    // ABOUT
+    '#sobre .section-tag':      ['Quem sou','Who I am'],
+    '#sobre .section-title':    ['Sobre mim','About me'],
+    '.about-lead':              ['Analista de Dados com sólida base em Economia e Finanças corporativas.','Data Analyst with a solid background in Economics and Corporate Finance.'],
+    // PROJECTS
+    '#projetos .section-tag':   ['Portfólio técnico','Technical portfolio'],
+    '#projetos .section-title': ['Projetos','Projects'],
+    // EXPERIENCE
+    '#experiencia .section-tag':   ['Trajetória','Career'],
+    '#experiencia .section-title': ['Experiência Profissional','Professional Experience'],
+    // SKILLS
+    '#habilidades .section-tag':   ['Stack técnica','Tech stack'],
+    '#habilidades .section-title': ['Habilidades','Skills'],
+    // EDUCATION
+    '#formacao .section-tag':   ['Acadêmico','Academic'],
+    '#formacao .section-title': ['Formação','Education'],
+    // CERTIFICATES
+    '#certificados .section-tag':   ['Diplomas & Conquistas','Diplomas & Achievements'],
+    '#certificados .section-title': ['Certificados','Certificates'],
+    '.certs-hint':                  ['Clique em um certificado para ampliar','Click a certificate to enlarge'],
+    // CONTACT
+    '#contato .section-tag':   ['Vamos conversar',"Let's talk"],
+    '#contato .section-title': ['Contato','Contact'],
+    '.contact-sub':            ['Aberto a oportunidades remotas em dados, BI e engenharia analítica.','Open to remote opportunities in data, BI, and analytical engineering.'],
+    // FOOTER
+    '.footer-tagline': ['Dados que decidem.','Data that decides.'],
+};
+
+// Coleções indexadas: cada elemento pelo índice na lista de matches
+const INDEXED_TRANS = {
+    statLabels: { sel:'.hero-stat .stat-label', v:[
+        ['Anos','Years old'],
+        ['Anos de experiência','Years of experience'],
+        ['Certificação ANBIMA','ANBIMA Certification'],
+        ['DEA-C01 em andamento','DEA-C01 in progress'],
+    ]},
+    vcLabels: { sel:'.vc-label', v:[
+        ['Pipeline ETL / ELT','ETL / ELT Pipeline'],
+        ['BI & Dashboards','BI & Dashboards'],
+        ['Data Science / ML','Data Science / ML'],
+        ['Domínio Financeiro','Financial Domain'],
+        ['Lakehouse / Engenharia','Lakehouse / Engineering'],
+    ]},
+    vcValues: { sel:'.vc-value', v:[
+        ['Python · GCP · BigQuery','Python · GCP · BigQuery'],
+        ['Power BI · Looker · Tableau','Power BI · Looker · Tableau'],
+        ['Scikit-learn · Econometria','Scikit-learn · Econometrics'],
+        ['DRE · FP&A · CPA-20','P&L · FP&A · CPA-20'],
+        ['Databricks · Medallion · Delta Lake','Databricks · Medallion · Delta Lake'],
+    ]},
+    aboutParas: { sel:'.about-text p', v:[
+        [null,null],
+        ['Meu diferencial está em unir domínio técnico de dados — ETL, Data Warehouse, Machine Learning — com profundo conhecimento do negócio financeiro. Isso me permite traduzir requisitos de negócio em arquiteturas que geram valor real, entregando dashboards e insights que chegam à mesa de quem decide.','My edge lies in combining technical data expertise — ETL, Data Warehouse, Machine Learning — with deep financial domain knowledge. This allows me to translate business requirements into architectures that generate real value, delivering dashboards and insights that reach decision-makers.'],
+        ['Ao longo de mais de 4 anos atuei em finanças corporativas em contextos que vão de startups a multinacionais, incluindo experiência em Lisboa, Portugal, antes de direcionar minha carreira para engenharia e análise de dados.','Over 4+ years, I worked in corporate finance across contexts ranging from startups to multinationals, including experience in Lisbon, Portugal, before pivoting my career to data engineering and analytics.'],
+        ['Inglês fluente  ·  CPA-20 (ANBIMA)  ·  Apaixonado por econometria aplicada','Fluent English  ·  CPA-20 (ANBIMA)  ·  Passionate about applied econometrics'],
+    ]},
+    projSubtitles: { sel:'.project-subtitle', v:[
+        ['Bronze → Silver → Gold — Databricks','Bronze → Silver → Gold — Databricks'],
+        ['Preço do Milho — Rio Grande do Sul','Corn Price — Rio Grande do Sul'],
+        ['Next Best Offer — Setor de Cooperativas','Next Best Offer — Credit Unions Sector'],
+        ['Brasileirão 2026','Brazilian Championship 2026'],
+        ['DRE · Fluxo de Caixa · EBITDA','P&L · Cash Flow · EBITDA'],
+        ['Revenue Forecasting Dinâmico','Dynamic Revenue Forecasting'],
+        ['Mercado Brasileiro de Capitais','Brazilian Capital Markets'],
+    ]},
+    skillTitles: { sel:'.skill-cat-title', v:[
+        ['Linguagens','Languages'],
+        ['BI & Analytics','BI & Analytics'],
+        ['Engenharia de Dados','Data Engineering'],
+        ['Cloud & Orquestração','Cloud & Orchestration'],
+        ['Data Science','Data Science'],
+        ['Negócios & Finanças','Business & Finance'],
+    ]},
+    eduIcons: { sel:'.edu-icon', v:[
+        ['GRADUAÇÃO',"BACHELOR'S"],
+        ['MBA','MBA'],
+        ['PÓS-GRADUAÇÃO','GRADUATE'],
+        ['CERTIFICAÇÃO','CERTIFICATION'],
+    ]},
+    eduTitles: { sel:'.edu-title', v:[
+        ['Graduação em Economia',"Bachelor's in Economics"],
+        ['MBA em Desenvolvimento Sustentável e Economia Circular','MBA in Sustainable Development and Circular Economy'],
+        ['Pós-Graduação em Gestão Financeira','Graduate in Financial Management'],
+        ['CPA-20','CPA-20'],
+    ]},
+    eduSchools: { sel:'.edu-school', v:[
+        ['UPF — Universidade de Passo Fundo','UPF — University of Passo Fundo'],
+        ['UPF — Universidade de Passo Fundo','UPF — University of Passo Fundo'],
+        ['UPF — Universidade de Passo Fundo','UPF — University of Passo Fundo'],
+        ['ANBIMA','ANBIMA'],
+    ]},
+    socialLabels: { sel:'#contato .social-label', v:[
+        ['Email','Email'],
+        ['LinkedIn','LinkedIn'],
+        ['GitHub','GitHub'],
+        ['Instagram','Instagram'],
+        ['Telefone','Phone'],
+    ]},
+};
+
+// Experiência profissional
+const EXP_TRANS = [
+    { role:['Analista de Dados & Coord. Financeiro','Data Analyst & Financial Coordinator'],
+      date:['Mai 2024 — Presente','May 2024 — Present'],
+      bullets:[
+        ['Estruturei pipeline mensal de consolidação de dados com extração, transformação SQL e carga no Power BI para dashboards de DRE, EBITDA, ROI e fluxo de caixa','Built monthly data consolidation pipeline with SQL extraction, transformation and Power BI load for P&L, EBITDA, ROI and cash flow dashboards'],
+        ['Conduzi apresentações mensais de resultados (Expectativa × Realidade) e revisões trimestrais de projeções para a diretoria','Led monthly results presentations (Expectations × Actuals) and quarterly forecast reviews for the board'],
+        ['Arquitetei os controles financeiros iniciais da empresa (DRE gerencial e fluxo de caixa), estabelecendo a base de governança de dados',"Architected the company's initial financial controls (P&L and cash flow), establishing the data governance foundation"],
+        ['Liderei equipe de desenvolvimento de produto com metodologia Agile, reduzindo lead time de entregas','Led product development team using Agile methodology, reducing delivery lead time'],
+    ]},
+    { role:['Coordenador Financeiro','Financial Coordinator'],
+      date:['Set 2023 — Dez 2023','Sep 2023 — Dec 2023'],
+      bullets:[
+        ['Gerenciei operações de fluxo de caixa e elaborei relatórios financeiros estratégicos para a diretoria','Managed cash flow operations and prepared strategic financial reports for the board'],
+        ['Foco em otimização de custos e governança financeira','Focus on cost optimization and financial governance'],
+    ]},
+    { role:['Assistente Financeiro','Financial Assistant'],
+      date:['Out 2022 — Ago 2023','Oct 2022 — Aug 2023'],
+      bullets:[
+        ['Conduzi auditorias financeiras e gestão de contas em ambiente multinacional','Conducted financial audits and account management in a multinational environment'],
+        ['Assegurei qualidade e conformidade dos dados financeiros com controles de acesso (RBAC)','Ensured quality and compliance of financial data with access controls (RBAC)'],
+    ]},
+    { role:['Coordenador & Especialista Contábil','Coordinator & Accounting Specialist'],
+      date:['Jan 2021 — Ago 2022','Jan 2021 — Aug 2022'],
+      bullets:[
+        ['Coordenei rotinas tributárias complexas (IRPF e Criptoativos)','Coordinated complex tax routines (Personal Income Tax and Cryptocurrencies)'],
+        ['Garanti governança de dados em operações financeiras e conformidade fiscal','Ensured data governance in financial operations and tax compliance'],
+    ]},
+];
+
+function translatePage(lang) {
+    const i = lang === 'en' ? 1 : 0;
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+
+    // Atualiza botão
+    const btn = document.getElementById('langToggle');
+    if (btn) { btn.textContent = lang === 'en' ? 'PT' : 'EN'; btn.classList.toggle('active', lang === 'en'); }
+
+    // Atualiza <html lang>
+    document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+
+    // Atualiza <title>
+    document.title = lang === 'en' ? 'Henrique Pain — Data Analyst' : 'Henrique Pain — Analista de Dados';
+
+    // Seletores simples
+    for (const [sel, t] of Object.entries(PAGE_TRANS)) {
+        const el = document.querySelector(sel);
+        if (el && t[i] !== null) el.textContent = t[i];
+    }
+
+    // Coleções indexadas
+    for (const cfg of Object.values(INDEXED_TRANS)) {
+        const els = document.querySelectorAll(cfg.sel);
+        cfg.v.forEach((t, j) => { if (els[j] && t[i] !== null) els[j].textContent = t[i]; });
+    }
+
+    // Hero botões
+    const heroActions = document.querySelectorAll('.hero-actions .btn');
+    if (heroActions[0]) heroActions[0].textContent = i ? 'View Projects' : 'Ver Projetos';
+    if (heroActions[2]) heroActions[2].textContent = i ? '↓ Download CV' : '↓ Baixar CV';
+
+    // "Ver Projeto →" nos cards
+    document.querySelectorAll('.btn-project').forEach(b => { b.textContent = i ? 'View Project →' : 'Ver Projeto →'; });
+
+    // Experiência
+    document.querySelectorAll('.timeline-item').forEach((item, j) => {
+        const exp = EXP_TRANS[j]; if (!exp) return;
+        const role = item.querySelector('.timeline-role');
+        const date = item.querySelector('.timeline-date');
+        const bullets = item.querySelectorAll('.timeline-bullets li');
+        if (role) role.textContent = exp.role[i];
+        if (date) date.textContent = exp.date[i];
+        exp.bullets.forEach((b, k) => { if (bullets[k]) bullets[k].textContent = b[i]; });
+    });
+
+    // Formação específicos
+    const posPeriod = document.querySelector('.current-edu .edu-period');
+    if (posPeriod) posPeriod.textContent = i ? '2025 — Present' : '2025 — Presente';
+    const posStatus = document.querySelector('.edu-status');
+    if (posStatus) posStatus.textContent = i ? 'In progress' : 'Em andamento';
+    const eduDesc = document.querySelector('.edu-desc');
+    if (eduDesc) eduDesc.textContent = i ? 'Professional Investment Certification' : 'Certificação Profissional em Investimentos';
+
+    // Footer copy
+    const footerCopy = document.querySelector('.footer-copy p');
+    if (footerCopy) footerCopy.textContent = i
+        ? '© 2026 Henrique Pain · Passo Fundo, RS · Data Analyst'
+        : '© 2026 Henrique Pain · Passo Fundo, RS · Analista de Dados';
+}
+
+// Aplica idioma salvo ao carregar
+translatePage(currentLang);
+
+// ============================================================
 // DARK MODE
 // ============================================================
+const langToggle = document.getElementById('langToggle');
+langToggle.addEventListener('click', () => translatePage(currentLang === 'en' ? 'pt' : 'en'));
+
 const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -301,27 +520,37 @@ function openModal(id) {
     ).join('');
 
     let actionsHtml = '';
-    if (p.github || p.demo) {
-        actionsHtml = `<p class="modal-section-title">Links</p><div class="modal-actions">`;
-        if (p.github) actionsHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="modal-action primary"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" style="flex-shrink:0"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a>`;
-        if (p.demo)   actionsHtml += `<a href="${p.demo}"   target="_blank" rel="noopener" class="modal-action">🔗 Ver Demo</a>`;
-        actionsHtml += `</div>`;
-    }
+    const isEn = currentLang === 'en';
+    const modalDesc = (isEn && p.desc_en) ? p.desc_en : p.desc;
+    const lblImages = isEn ? 'Images' : 'Imagens';
+    const lblVideo  = isEn ? 'Video'  : 'Vídeo';
+    const lblLinks  = isEn ? 'Links'  : 'Links';
+    const lblDemo   = isEn ? '🔗 View Demo' : '🔗 Ver Demo';
+    const emptyTitle = isEn ? 'Media not yet added' : 'Mídia ainda não adicionada';
+    const emptyHint  = isEn ? `Add images and/or video to the <code>${id}</code> object in <code>script.js</code>` : `Adicione imagens e/ou vídeo no objeto <code>${id}</code> em <code>script.js</code>`;
 
     let mediaHtml = '';
     if (p.images.length > 0) {
         const imgs = p.images.map(src =>
             `<img class="modal-gallery-img" src="${src}" alt="${p.title}" loading="lazy" data-src="${src}" data-caption="${p.title}">`
         ).join('');
-        mediaHtml += `<p class="modal-section-title">Imagens</p><div class="modal-gallery">${imgs}</div>`;
+        mediaHtml += `<p class="modal-section-title">${lblImages}</p><div class="modal-gallery">${imgs}</div>`;
     }
 
     if (p.video) {
-        mediaHtml += `<p class="modal-section-title">Vídeo</p><iframe class="modal-video" src="${p.video}" allowfullscreen></iframe>`;
+        mediaHtml += `<p class="modal-section-title">${lblVideo}</p><iframe class="modal-video" src="${p.video}" allowfullscreen></iframe>`;
     }
 
     if (!p.images.length && !p.video) {
-        mediaHtml = `<div class="modal-empty"><strong>Mídia ainda não adicionada</strong>Adicione imagens e/ou vídeo no objeto <code>${id}</code> em <code>script.js</code></div>`;
+        mediaHtml = `<div class="modal-empty"><strong>${emptyTitle}</strong>${emptyHint}</div>`;
+    }
+
+    // Rebuild actionsHtml with translated labels
+    if (p.github || p.demo) {
+        actionsHtml = `<p class="modal-section-title">${lblLinks}</p><div class="modal-actions">`;
+        if (p.github) actionsHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="modal-action primary"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" style="flex-shrink:0"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a>`;
+        if (p.demo)   actionsHtml += `<a href="${p.demo}" target="_blank" rel="noopener" class="modal-action">${lblDemo}</a>`;
+        actionsHtml += `</div>`;
     }
 
     modalInner.innerHTML = `
@@ -330,7 +559,7 @@ function openModal(id) {
             <div class="modal-tags">${tagsHtml}</div>
             <h2 class="modal-title">${p.title}</h2>
             <p class="modal-subtitle">${p.subtitle}</p>
-            <p class="modal-desc">${p.desc}</p>
+            <p class="modal-desc">${modalDesc}</p>
             <div class="modal-metrics">${metricsHtml}</div>
             ${actionsHtml}
             ${mediaHtml}
