@@ -255,6 +255,8 @@ img { display: block; max-width: 100%; }
 .vc-2 { animation-delay: .3s;  border-left-color: #7c3aed; }
 .vc-3 { animation-delay: .45s; border-left-color: #059669; }
 .vc-4 { animation-delay: .6s;  border-left-color: #d97706; }
+.vc-5 { animation-delay: .75s; border-left-color: #e05729; }
+[data-theme="dark"] .vc-5 { border-left-color: #f97316; }
 
 @keyframes slideInRight { from { opacity:0; transform:translateX(24px); } to { opacity:1; transform:translateX(0); } }
 

@@ -35,7 +35,7 @@ const PROJECTS = {
         github: 'https://github.com/henriquereolonpain-sys/Projeto_03',
         demo: '',
         video: '',
-        images: [],
+        images: ['img/runbricks.png', 'img/runjobbricks.png', 'img/dashboardbricks.png'],
     },
     recomendacao: {
         gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)',
