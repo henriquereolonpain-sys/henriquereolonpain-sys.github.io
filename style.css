@@ -132,7 +132,7 @@ img { display: block; max-width: 100%; }
 /* ===== NAV ===== */
 .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(248,250,252,.9);
+    background: rgba(220,225,232,.96);
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     transition: box-shadow .3s, background .3s, border-color .3s;
@@ -145,7 +145,7 @@ img { display: block; max-width: 100%; }
 }
 
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 28px; width: auto; display: block; object-fit: contain; }
+.nav-logo-img { height: 44px; width: auto; display: block; object-fit: contain; }
 
 .nav-links { display: flex; align-items: center; gap: .125rem; }
 .nav-links a {
