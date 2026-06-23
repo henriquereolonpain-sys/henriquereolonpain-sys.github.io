@@ -25,6 +25,18 @@ const PROJECTS = {
             'img/previsão.png',
         ],
     },
+    projeto03: {
+        gradient: 'linear-gradient(135deg,#e05729,#c84a19)',
+        tags: ['Databricks','PySpark','Python','Medallion','Delta Lake'],
+        title: 'Pipeline Medallion Architecture',
+        subtitle: 'Bronze → Silver → Gold — Databricks',
+        desc: 'Pipeline de dados com arquitetura Medallion implementado no Databricks Community Edition. Ingestão de CSVs na camada Bronze, limpeza e transformações com PySpark na Silver, e visões analíticas prontas para consumo na Gold. Projeto demonstra domínio de arquitetura moderna de Data Lakehouse.',
+        metrics: [{ num:'3', label:'Camadas Medallion' }, { num:'Δ', label:'Delta Lake' }],
+        github: 'https://github.com/henriquereolonpain-sys/Projeto_03',
+        demo: '',
+        video: '',
+        images: [],
+    },
     recomendacao: {
         gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)',
         tags: ['Neo4j AuraDB','Python','Pandas','Cypher','Graph DB'],
