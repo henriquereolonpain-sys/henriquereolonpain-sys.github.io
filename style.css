@@ -325,7 +325,7 @@ img { display: block; max-width: 100%; }
 .profile-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; }
 .about-chips { display: flex; flex-direction: column; gap: .5rem; width: 100%; }
 .chip {
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
     padding: .375rem .875rem; background: var(--surface);
     border: 1.5px solid var(--border); border-radius: 8px;
     font-size: .8125rem; font-weight: 600; color: var(--text-muted);
