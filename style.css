@@ -50,7 +50,13 @@
     color: #93c5fd;
 }
 
-[data-theme="dark"] .visual-card { border-color: #334155; }
+[data-theme="dark"] .visual-card { background: #1e2d47; border-color: #2d4270; }
+[data-theme="dark"] .vc-label { color: #e2e8f0; }
+[data-theme="dark"] .vc-value { color: #93b0cf; }
+[data-theme="dark"] .vc-1 { border-left-color: #3b82f6; }
+[data-theme="dark"] .vc-2 { border-left-color: #a78bfa; }
+[data-theme="dark"] .vc-3 { border-left-color: #34d399; }
+[data-theme="dark"] .vc-4 { border-left-color: #fbbf24; }
 
 [data-theme="dark"] .tag { background: #0f172a; color: #94a3b8; }
 
