@@ -113,7 +113,7 @@ html { scroll-behavior: smooth; }
 body {
     font-family: 'Inter', system-ui, sans-serif;
     background-color: var(--bg);
-    background-image: radial-gradient(var(--dot-color, #c8d6e8) 1px, transparent 1px);
+    background-image: radial-gradient(#b8cce0 1.2px, transparent 1.2px);
     background-size: 28px 28px;
     color: var(--text);
     line-height: 1.6;
@@ -122,7 +122,7 @@ body {
 }
 
 [data-theme="dark"] body {
-    --dot-color: #1e3a5f;
+    background-image: radial-gradient(#1e3a5f 1.2px, transparent 1.2px);
 }
 
 a { text-decoration: none; color: inherit; }
@@ -273,7 +273,14 @@ img { display: block; max-width: 100%; }
 
 /* ===== SECTIONS ===== */
 .section { padding: 5rem 0; transition: background .3s; }
-.section-alt { background: var(--bg-alt); background-image: none; }
+.section-alt {
+    background-color: var(--bg-alt);
+    background-image: radial-gradient(#aec4d8 1.2px, transparent 1.2px);
+    background-size: 28px 28px;
+}
+[data-theme="dark"] .section-alt {
+    background-image: radial-gradient(#1a3254 1.2px, transparent 1.2px);
+}
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .section-header { text-align: center; margin-bottom: 3.5rem; }
 .section-tag {
@@ -396,13 +403,22 @@ img { display: block; max-width: 100%; }
 .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
 .skill-category {
     background: var(--surface); border: 1px solid var(--border);
-    border-top: 2.5px solid var(--accent);
-    border-radius: 0 0 var(--radius) var(--radius);
+    border-radius: var(--radius);
     padding: 1.25rem 1.5rem 1.5rem;
     box-shadow: var(--shadow); transition: all .3s;
 }
 .skill-category:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .skill-cat-title { font-size: .9375rem; font-weight: 700; color: var(--primary); margin-bottom: .875rem; }
+
+.skill-azulejo {
+    width: 46px; height: 46px;
+    color: var(--accent);
+    margin-bottom: .875rem;
+    display: block;
+    opacity: .85;
+    transition: opacity .2s, color .3s;
+}
+.skill-category:hover .skill-azulejo { opacity: 1; }
 .skill-tags       { display: flex; flex-wrap: wrap; gap: .375rem; }
 .skill-tag {
     padding: .25rem .625rem; background: var(--bg-alt);
