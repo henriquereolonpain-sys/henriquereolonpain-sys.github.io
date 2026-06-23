@@ -519,6 +519,7 @@ CERTS.forEach(cert => {
         </div>
     `;
 
+    if (!cert.img) item.style.cursor = 'default';
     if (cert.img) {
         const isPdf = cert.img.toLowerCase().endsWith('.pdf');
         if (isPdf) {
