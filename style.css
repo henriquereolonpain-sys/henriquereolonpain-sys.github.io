@@ -477,7 +477,7 @@ img { display: block; max-width: 100%; }
 /* ===== CERTIFICATES ===== */
 .certs-hint { color: var(--text-light); font-size: .875rem; margin-top: .5rem; }
 
-.certs-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+.certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; max-width: 900px; margin: 0 auto; }
 
 .cert-item {
     background: var(--surface); border: 1px solid var(--border);
