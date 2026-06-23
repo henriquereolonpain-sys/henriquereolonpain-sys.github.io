@@ -110,7 +110,6 @@ const PROJECTS = {
 const CERTS = [
     { label: 'Graduação em Economia', school: 'UPF', img: 'img/diploma.png', emoji: '🏛️' },
     { label: 'MBA em Desenvolvimento Sustentável e Economia Circular', school: 'UPF', img: 'img/mba.jpg', emoji: '📜' },
-    { label: 'Pós-Graduação em Gestão Financeira', school: 'UPF', img: '', emoji: '🎓' },
     { label: 'CPA-20', school: 'ANBIMA', img: 'img/cpa.jpeg', emoji: '🏆' },
 ];
 
