@@ -2,8 +2,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    --bg:           #f8fafc;
-    --bg-alt:       #f1f5f9;
+    --bg:           #f0f4f8;
+    --bg-alt:       #e8eef5;
     --surface:      #ffffff;
     --border:       #e2e8f0;
     --primary:      #1e3a5f;
@@ -112,11 +112,17 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--dot-color, #c8d6e8) 1px, transparent 1px);
+    background-size: 28px 28px;
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    transition: background .3s, color .3s;
+    transition: background-color .3s, color .3s;
+}
+
+[data-theme="dark"] body {
+    --dot-color: #1e3a5f;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -173,6 +179,7 @@ img { display: block; max-width: 100%; }
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     position: relative; overflow: hidden; padding-top: 64px;
+    background-image: none;
 }
 
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
@@ -266,7 +273,7 @@ img { display: block; max-width: 100%; }
 
 /* ===== SECTIONS ===== */
 .section { padding: 5rem 0; transition: background .3s; }
-.section-alt { background: var(--bg-alt); }
+.section-alt { background: var(--bg-alt); background-image: none; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .section-header { text-align: center; margin-bottom: 3.5rem; }
 .section-tag {

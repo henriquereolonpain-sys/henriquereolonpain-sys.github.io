@@ -49,8 +49,8 @@ const PROJECTS = {
         metrics: [{ num:'3', label:'Algoritmos comparados' }, { num:'Full', label:'Ciclo ML completo' }],
         github: 'https://github.com/henriquereolonpain-sys/Inter-166-Analytics',
         demo: '',
-        video: '',
-        images: ['https://raw.githubusercontent.com/henriquereolonpain-sys/Inter-166-Analytics/main/Imgs/Bi.png'],
+        video: 'https://player.vimeo.com/video/1175155235',
+        images: [],
     },
     dashboard: {
         gradient: 'linear-gradient(135deg,#d97706,#b45309)',
@@ -85,7 +85,7 @@ const PROJECTS = {
         metrics: [{ num:'α', label:'Alpha dinâmico vs. IBOV' }, { num:'ESG', label:'Foco temático' }],
         github: '',
         demo: '',
-        video: 'https://player.vimeo.com/video/1158507583',
+        video: '',
         images: ['img/esg.png'],
     },
 };
