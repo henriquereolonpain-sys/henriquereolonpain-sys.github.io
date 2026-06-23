@@ -517,12 +517,12 @@ img { display: block; max-width: 100%; }
 
 /* ===== CONTACT ===== */
 .contact-section { background: var(--primary); transition: background .3s; position: relative; overflow: hidden; }
-.contact-section .section-tag  { background: rgba(219,234,254,.12); color: #93c5fd; }
+.contact-section .section-tag  { background: transparent; color: #93c5fd; letter-spacing: 1.5px; text-transform: uppercase; font-size: .75rem; }
 .contact-section .section-title { color: #f8fafc; }
 .contact-sub { color: #94a3b8; margin-top: .75rem; font-size: 1rem; }
 .social-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; max-width: 1000px; margin: 2.5rem auto 0; }
 .social-card {
-    display: flex; align-items: center; gap: 1rem;
+    display: flex; align-items: center; gap: 1.25rem;
     padding: 1.25rem 1.5rem;
     background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
     border-radius: var(--radius); transition: all .3s;
