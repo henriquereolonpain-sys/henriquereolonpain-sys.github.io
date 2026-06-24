@@ -388,83 +388,91 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ============================================================
-// HERO CANVAS — linhas econômicas animadas (efeito cometa)
+// HERO CANVAS — arte topográfica generativa
 // ============================================================
 (function () {
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
+    let t = 0;
+    let raf;
+
     function resize() {
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
     }
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', () => { resize(); });
 
-    class Wave {
-        constructor() { this.spawn(); }
+    // Ruído multi-oitava via senos (sem lib externa)
+    function fbm(x, y, seed) {
+        return (
+            Math.sin(x * 0.016 + seed) * 0.42 +
+            Math.sin(x * 0.038 + y * 0.11 + seed * 1.7) * 0.26 +
+            Math.sin(x * 0.082 + y * 0.055 + seed * 0.9) * 0.16 +
+            Math.sin(x * 0.17  + y * 0.028 + seed * 2.3) * 0.09 +
+            Math.sin(x * 0.34  + y * 0.014 + seed * 1.1) * 0.05 +
+            Math.sin(x * 0.68  + y * 0.007 + seed * 0.6) * 0.02
+        );
+    }
 
-        spawn() {
-            const h = canvas.height;
-            this.x       = -(100 + Math.random() * 400);
-            this.baseY   = h * (0.08 + Math.random() * 0.84);
-            this.speed   = 0.5 + Math.random() * 1.4;
-            this.amp     = 12 + Math.random() * 55;
-            this.freq    = 0.006 + Math.random() * 0.022;
-            this.tail    = 180 + Math.random() * 280;
-            this.opacity = 0.14 + Math.random() * 0.18;
-            this.phase   = Math.random() * Math.PI * 2;
-            this.choppy  = Math.random() > 0.55;
-            this.lw      = 0.8 + Math.random() * 0.7;
-        }
+    function draw() {
+        const W = canvas.width;
+        const H = canvas.height;
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
-        draw() {
-            const w = canvas.width;
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const rgb = isDark ? '96,165,250' : '37,99,235';
-            const x0 = this.x - this.tail;
-            const x1 = this.x;
+        ctx.clearRect(0, 0, W, H);
+
+        const LINES   = 80;
+        const spacing = (H * 0.72) / LINES;
+
+        for (let l = 0; l < LINES; l++) {
+            const progress = l / LINES;                    // 0 = baixo, 1 = topo
+            const baseY    = H * 0.97 - l * spacing;
 
             ctx.beginPath();
-            let first = true;
-            for (let i = 0; i <= 90; i++) {
-                const t  = i / 90;
-                const px = x0 + t * (x1 - x0);
-                if (px < -2 || px > w + 2) { first = true; continue; }
-                let py = this.baseY + Math.sin(px * this.freq + this.phase) * this.amp;
-                if (this.choppy) py += Math.sin(px * this.freq * 3.5 + this.phase * 1.4) * this.amp * 0.28;
-                if (first) { ctx.moveTo(px, py); first = false; }
-                else ctx.lineTo(px, py);
+            let started = false;
+
+            for (let x = 0; x <= W; x += 2) {
+                const nx = x / W;
+
+                // Envelope gaussiano duplo: pico principal + crista secundária
+                const cPeak  = (nx - 0.52) / 0.22;
+                const cRidge = (nx - 0.65) / 0.09;
+                const gPeak  = Math.exp(-cPeak  * cPeak  * 0.5);
+                const gRidge = Math.exp(-cRidge * cRidge * 0.5) * 0.45;
+                const envelope = (gPeak + gRidge) * Math.pow(progress, 0.65);
+
+                // Terreno com FBM
+                const n = fbm(x, l * 3.2, t);
+                const rise = envelope * H * 0.58 + n * envelope * H * 0.18;
+
+                const y = baseY - rise;
+
+                if (!started) { ctx.moveTo(x, y); started = true; }
+                else ctx.lineTo(x, y);
             }
 
-            const g = ctx.createLinearGradient(x0, 0, x1, 0);
-            g.addColorStop(0,   `rgba(${rgb},0)`);
-            g.addColorStop(0.6, `rgba(${rgb},${this.opacity * 0.4})`);
-            g.addColorStop(1,   `rgba(${rgb},${this.opacity})`);
-            ctx.strokeStyle = g;
-            ctx.lineWidth   = this.lw;
+            // Opacidade: mais intensa no pico da montanha
+            const peakAlpha = Math.exp(-Math.pow(progress - 0.72, 2) * 7) * 0.13;
+            const alpha = 0.03 + peakAlpha + progress * 0.04;
+            const lw    = progress > 0.55 ? 0.65 : 0.4;
+            const rgb   = isDark ? '148,180,220' : '30,58,95';
+
+            ctx.strokeStyle = `rgba(${rgb},${Math.min(alpha, 0.22)})`;
+            ctx.lineWidth   = lw;
             ctx.stroke();
         }
-
-        update() {
-            this.x += this.speed;
-            if (this.x - this.tail > canvas.width) this.spawn();
-        }
     }
 
-    const waves = Array.from({ length: 14 }, (_, i) => {
-        const w = new Wave();
-        w.x = (i / 14) * canvas.width;
-        return w;
-    });
-
-    function loop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        waves.forEach(w => { w.update(); w.draw(); });
-        requestAnimationFrame(loop);
+    function animate() {
+        t += 0.00025;  // deriva muito lenta — quase imperceptível
+        draw();
+        raf = requestAnimationFrame(animate);
     }
-    loop();
+
+    animate();
 })();
 
 // ============================================================
