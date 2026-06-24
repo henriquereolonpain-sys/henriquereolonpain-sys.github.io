@@ -420,37 +420,42 @@ themeToggle.addEventListener('click', () => {
 
         ctx.clearRect(0, 0, W, H);
 
-        const LINES   = 80;
-        const spacing = (H * 0.72) / LINES;
+        const LINES   = 90;
+        const spacing = (H * 0.94) / LINES;  // cobre quase todo o hero
 
         for (let l = 0; l < LINES; l++) {
             const progress = l / LINES;
-            const baseY    = H * 0.97 - l * spacing;
+            const baseY    = H * 0.98 - l * spacing;
 
             ctx.beginPath();
             let started = false;
 
             for (let x = 0; x <= W; x += 1) {
                 const nx = x / W;
-                const cPeak  = (nx - 0.52) / 0.22;
-                const cRidge = (nx - 0.65) / 0.09;
+
+                // Gaussiano mais largo (0.38) + crista secundária mais larga (0.14)
+                const cPeak  = (nx - 0.52) / 0.38;
+                const cRidge = (nx - 0.64) / 0.14;
                 const gPeak  = Math.exp(-cPeak  * cPeak  * 0.5);
-                const gRidge = Math.exp(-cRidge * cRidge * 0.5) * 0.45;
-                const envelope = (gPeak + gRidge) * Math.pow(progress, 0.65);
+                const gRidge = Math.exp(-cRidge * cRidge * 0.5) * 0.40;
+
+                // Base mínima em todo o canvas (pontas e topo recebem ondas também)
+                const base     = 0.28;
+                const envelope = (base + (gPeak + gRidge) * 0.72) * (0.15 + progress * 0.85);
 
                 const n    = fbm(x, l * 3.2, t);
-                const rise = envelope * H * 0.58 + n * envelope * H * 0.18;
+                const rise = envelope * H * 0.44 + n * envelope * H * 0.18;
                 const y    = baseY - rise;
 
                 if (!started) { ctx.moveTo(x, y); started = true; }
                 else ctx.lineTo(x, y);
             }
 
-            const peakAlpha = Math.exp(-Math.pow(progress - 0.72, 2) * 7) * 0.13;
-            const alpha = 0.03 + peakAlpha + progress * 0.04;
+            const peakAlpha = Math.exp(-Math.pow(progress - 0.72, 2) * 6) * 0.12;
+            const alpha = 0.035 + peakAlpha + progress * 0.03;
             const rgb   = isDark ? '148,180,220' : '30,58,95';
-            ctx.strokeStyle = `rgba(${rgb},${Math.min(alpha, 0.22)})`;
-            ctx.lineWidth   = progress > 0.55 ? 0.65 : 0.4;
+            ctx.strokeStyle = `rgba(${rgb},${Math.min(alpha, 0.20)})`;
+            ctx.lineWidth   = progress > 0.5 ? 0.65 : 0.45;
             ctx.stroke();
         }
     }
