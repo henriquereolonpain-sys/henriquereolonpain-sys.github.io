@@ -388,7 +388,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ============================================================
-// HERO CANVAS — mar caótico com picos agudos
+// HERO CANVAS — arte topográfica generativa
 // ============================================================
 (function () {
     const canvas = document.getElementById('heroCanvas');
@@ -396,16 +396,6 @@ themeToggle.addEventListener('click', () => {
     const ctx = canvas.getContext('2d');
 
     let t = 0;
-    const LINES = 90;
-
-    // Seeds aleatórios por linha (gerados 1x, não mudam)
-    const S = Array.from({ length: LINES }, () => ({
-        p1: Math.random() * Math.PI * 2,
-        p2: Math.random() * Math.PI * 2,
-        p3: Math.random() * Math.PI * 2,
-        sp: 0.55 + Math.random() * 1.1,   // velocidade individual
-        af: 0.6  + Math.random() * 0.9,   // amplitude individual
-    }));
 
     function resize() {
         canvas.width  = canvas.offsetWidth;
@@ -414,11 +404,15 @@ themeToggle.addEventListener('click', () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Pico agudo: cristas altas e pontiagudas, vales rasos
-    function sharpen(v) {
-        return v > 0
-            ? Math.pow(v,  0.65) * 1.25   // crista: esticada e afinada
-            : Math.pow(-v, 1.40) * -0.75; // vale: achatado
+    function fbm(x, y, seed) {
+        return (
+            Math.sin(x * 0.016 + seed) * 0.42 +
+            Math.sin(x * 0.038 + y * 0.11 + seed * 1.7) * 0.26 +
+            Math.sin(x * 0.082 + y * 0.055 + seed * 0.9) * 0.16 +
+            Math.sin(x * 0.17  + y * 0.028 + seed * 2.3) * 0.09 +
+            Math.sin(x * 0.34  + y * 0.014 + seed * 1.1) * 0.05 +
+            Math.sin(x * 0.68  + y * 0.007 + seed * 0.6) * 0.02
+        );
     }
 
     function draw() {
@@ -428,55 +422,43 @@ themeToggle.addEventListener('click', () => {
 
         ctx.clearRect(0, 0, W, H);
 
-        const spacing = H / (LINES + 1);
+        const LINES   = 80;
+        const spacing = (H * 0.72) / LINES;
 
         for (let l = 0; l < LINES; l++) {
             const progress = l / LINES;
-            const baseY    = (l + 1) * spacing;
-            const s        = S[l];
-
-            // Amplitude maior no centro (horizonte do mar)
-            const amp = (Math.sin(progress * Math.PI) * 2.8 + 0.5) * spacing * s.af;
+            const baseY    = H * 0.97 - l * spacing;
 
             ctx.beginPath();
             let started = false;
 
             for (let x = 0; x <= W; x += 2) {
-                const sp = s.sp * t;
+                const nx = x / W;
+                const cPeak  = (nx - 0.52) / 0.22;
+                const cRidge = (nx - 0.65) / 0.09;
+                const gPeak  = Math.exp(-cPeak  * cPeak  * 0.5);
+                const gRidge = Math.exp(-cRidge * cRidge * 0.5) * 0.45;
+                const envelope = (gPeak + gRidge) * Math.pow(progress, 0.65);
 
-                // Ondas principais (frequências e direções variadas)
-                const w1 = Math.sin(x * 0.017 + l * 0.36 - sp * 1.9  + s.p1) * 0.44;
-                const w2 = Math.sin(x * 0.039 + l * 0.21 - sp * 1.05 + s.p2) * 0.26;
-                const w3 = Math.sin(x * 0.010 + l * 0.52 - sp * 0.65 + s.p3) * 0.17;
-                const w4 = Math.sin(x * 0.071 + l * 0.13 - sp * 2.8  + s.p1 * 1.6) * 0.10;
+                const n    = fbm(x, l * 3.2, t);
+                const rise = envelope * H * 0.58 + n * envelope * H * 0.18;
+                const y    = baseY - rise;
 
-                // Contra-correntes (cada linha tem velocidade própria)
-                const w5 = Math.sin(x * 0.027 + l * 0.29 + sp * 0.55 + s.p2 * 0.8) * 0.13;
-                const w6 = Math.sin(x * 0.055 + l * 0.17 + sp * 1.3  + s.p3 * 1.3) * 0.08;
-
-                // Turbulência de alta freq (caos local — "ondulações")
-                const turb = Math.sin(x * 0.14  + l * 1.1 - sp * 4.5 + s.p1) * 0.07
-                           + Math.sin(x * 0.21  + l * 0.7 + sp * 3.2 + s.p2) * 0.04;
-
-                // Soma + função de afinamento dos picos
-                const raw = w1 + w2 + w3 + w4 + w5 + w6 + turb;
-                const dy  = sharpen(raw) * amp;
-
-                const y = baseY + dy;
                 if (!started) { ctx.moveTo(x, y); started = true; }
                 else ctx.lineTo(x, y);
             }
 
-            const rgb   = isDark ? '148,185,230' : '30,58,95';
-            const alpha = isDark ? 0.15 : 0.095;
-            ctx.strokeStyle = `rgba(${rgb},${alpha})`;
-            ctx.lineWidth   = 0.6;
+            const peakAlpha = Math.exp(-Math.pow(progress - 0.72, 2) * 7) * 0.13;
+            const alpha = 0.03 + peakAlpha + progress * 0.04;
+            const rgb   = isDark ? '148,180,220' : '30,58,95';
+            ctx.strokeStyle = `rgba(${rgb},${Math.min(alpha, 0.22)})`;
+            ctx.lineWidth   = progress > 0.55 ? 0.65 : 0.4;
             ctx.stroke();
         }
     }
 
     function animate() {
-        t += 0.007;
+        t += 0.00025;
         draw();
         requestAnimationFrame(animate);
     }
