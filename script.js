@@ -388,7 +388,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ============================================================
-// HERO CANVAS — arte topográfica generativa
+// HERO CANVAS — mar topográfico animado
 // ============================================================
 (function () {
     const canvas = document.getElementById('heroCanvas');
@@ -396,26 +396,13 @@ themeToggle.addEventListener('click', () => {
     const ctx = canvas.getContext('2d');
 
     let t = 0;
-    let raf;
 
     function resize() {
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
     }
     resize();
-    window.addEventListener('resize', () => { resize(); });
-
-    // Ruído multi-oitava via senos (sem lib externa)
-    function fbm(x, y, seed) {
-        return (
-            Math.sin(x * 0.016 + seed) * 0.42 +
-            Math.sin(x * 0.038 + y * 0.11 + seed * 1.7) * 0.26 +
-            Math.sin(x * 0.082 + y * 0.055 + seed * 0.9) * 0.16 +
-            Math.sin(x * 0.17  + y * 0.028 + seed * 2.3) * 0.09 +
-            Math.sin(x * 0.34  + y * 0.014 + seed * 1.1) * 0.05 +
-            Math.sin(x * 0.68  + y * 0.007 + seed * 0.6) * 0.02
-        );
-    }
+    window.addEventListener('resize', resize);
 
     function draw() {
         const W = canvas.width;
@@ -424,52 +411,47 @@ themeToggle.addEventListener('click', () => {
 
         ctx.clearRect(0, 0, W, H);
 
-        const LINES   = 80;
-        const spacing = (H * 0.72) / LINES;
+        const LINES   = 90;
+        const spacing = H / (LINES + 1);
 
         for (let l = 0; l < LINES; l++) {
-            const progress = l / LINES;                    // 0 = baixo, 1 = topo
-            const baseY    = H * 0.97 - l * spacing;
+            const progress = l / LINES;   // 0 = topo, 1 = fundo
+            const baseY    = (l + 1) * spacing;
+
+            // Ondas maiores no centro (espelho do mar aberto)
+            const amp = Math.sin(progress * Math.PI) * spacing * 2.6 + spacing * 0.5;
 
             ctx.beginPath();
             let started = false;
 
             for (let x = 0; x <= W; x += 2) {
-                const nx = x / W;
+                // 5 ondas viajando em direções e velocidades diferentes
+                // → cria interferência natural, parecendo oceano real
+                const w1 = Math.sin(x * 0.018 + l * 0.38 - t * 1.8 ) * 0.46;
+                const w2 = Math.sin(x * 0.042 + l * 0.22 - t * 1.1 ) * 0.27;
+                const w3 = Math.sin(x * 0.011 + l * 0.55 - t * 0.7 ) * 0.18;
+                const w4 = Math.sin(x * 0.075 + l * 0.14 - t * 2.6 ) * 0.11;
+                const w5 = Math.sin(x * 0.029 + l * 0.31 + t * 0.5 ) * 0.14; // contra-corrente
 
-                // Envelope gaussiano duplo: pico principal + crista secundária
-                const cPeak  = (nx - 0.52) / 0.22;
-                const cRidge = (nx - 0.65) / 0.09;
-                const gPeak  = Math.exp(-cPeak  * cPeak  * 0.5);
-                const gRidge = Math.exp(-cRidge * cRidge * 0.5) * 0.45;
-                const envelope = (gPeak + gRidge) * Math.pow(progress, 0.65);
-
-                // Terreno com FBM
-                const n = fbm(x, l * 3.2, t);
-                const rise = envelope * H * 0.58 + n * envelope * H * 0.18;
-
-                const y = baseY - rise;
+                const dy = (w1 + w2 + w3 + w4 + w5) * amp;
+                const y  = baseY + dy;
 
                 if (!started) { ctx.moveTo(x, y); started = true; }
                 else ctx.lineTo(x, y);
             }
 
-            // Opacidade: mais intensa no pico da montanha
-            const peakAlpha = Math.exp(-Math.pow(progress - 0.72, 2) * 7) * 0.13;
-            const alpha = 0.03 + peakAlpha + progress * 0.04;
-            const lw    = progress > 0.55 ? 0.65 : 0.4;
-            const rgb   = isDark ? '148,180,220' : '30,58,95';
-
-            ctx.strokeStyle = `rgba(${rgb},${Math.min(alpha, 0.22)})`;
-            ctx.lineWidth   = lw;
+            const rgb   = isDark ? '148,185,230' : '30,58,95';
+            const alpha = isDark ? 0.16 : 0.10;
+            ctx.strokeStyle = `rgba(${rgb},${alpha})`;
+            ctx.lineWidth   = 0.65;
             ctx.stroke();
         }
     }
 
     function animate() {
-        t += 0.00025;  // deriva muito lenta — quase imperceptível
+        t += 0.007;
         draw();
-        raf = requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
     }
 
     animate();
