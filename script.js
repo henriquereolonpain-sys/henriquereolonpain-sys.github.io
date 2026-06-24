@@ -388,7 +388,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ============================================================
-// HERO CANVAS — mar topográfico animado
+// HERO CANVAS — mar caótico com picos agudos
 // ============================================================
 (function () {
     const canvas = document.getElementById('heroCanvas');
@@ -396,6 +396,16 @@ themeToggle.addEventListener('click', () => {
     const ctx = canvas.getContext('2d');
 
     let t = 0;
+    const LINES = 90;
+
+    // Seeds aleatórios por linha (gerados 1x, não mudam)
+    const S = Array.from({ length: LINES }, () => ({
+        p1: Math.random() * Math.PI * 2,
+        p2: Math.random() * Math.PI * 2,
+        p3: Math.random() * Math.PI * 2,
+        sp: 0.55 + Math.random() * 1.1,   // velocidade individual
+        af: 0.6  + Math.random() * 0.9,   // amplitude individual
+    }));
 
     function resize() {
         canvas.width  = canvas.offsetWidth;
@@ -404,6 +414,13 @@ themeToggle.addEventListener('click', () => {
     resize();
     window.addEventListener('resize', resize);
 
+    // Pico agudo: cristas altas e pontiagudas, vales rasos
+    function sharpen(v) {
+        return v > 0
+            ? Math.pow(v,  0.65) * 1.25   // crista: esticada e afinada
+            : Math.pow(-v, 1.40) * -0.75; // vale: achatado
+    }
+
     function draw() {
         const W = canvas.width;
         const H = canvas.height;
@@ -411,39 +428,49 @@ themeToggle.addEventListener('click', () => {
 
         ctx.clearRect(0, 0, W, H);
 
-        const LINES   = 90;
         const spacing = H / (LINES + 1);
 
         for (let l = 0; l < LINES; l++) {
-            const progress = l / LINES;   // 0 = topo, 1 = fundo
+            const progress = l / LINES;
             const baseY    = (l + 1) * spacing;
+            const s        = S[l];
 
-            // Ondas maiores no centro (espelho do mar aberto)
-            const amp = Math.sin(progress * Math.PI) * spacing * 2.6 + spacing * 0.5;
+            // Amplitude maior no centro (horizonte do mar)
+            const amp = (Math.sin(progress * Math.PI) * 2.8 + 0.5) * spacing * s.af;
 
             ctx.beginPath();
             let started = false;
 
             for (let x = 0; x <= W; x += 2) {
-                // 5 ondas viajando em direções e velocidades diferentes
-                // → cria interferência natural, parecendo oceano real
-                const w1 = Math.sin(x * 0.018 + l * 0.38 - t * 1.8 ) * 0.46;
-                const w2 = Math.sin(x * 0.042 + l * 0.22 - t * 1.1 ) * 0.27;
-                const w3 = Math.sin(x * 0.011 + l * 0.55 - t * 0.7 ) * 0.18;
-                const w4 = Math.sin(x * 0.075 + l * 0.14 - t * 2.6 ) * 0.11;
-                const w5 = Math.sin(x * 0.029 + l * 0.31 + t * 0.5 ) * 0.14; // contra-corrente
+                const sp = s.sp * t;
 
-                const dy = (w1 + w2 + w3 + w4 + w5) * amp;
-                const y  = baseY + dy;
+                // Ondas principais (frequências e direções variadas)
+                const w1 = Math.sin(x * 0.017 + l * 0.36 - sp * 1.9  + s.p1) * 0.44;
+                const w2 = Math.sin(x * 0.039 + l * 0.21 - sp * 1.05 + s.p2) * 0.26;
+                const w3 = Math.sin(x * 0.010 + l * 0.52 - sp * 0.65 + s.p3) * 0.17;
+                const w4 = Math.sin(x * 0.071 + l * 0.13 - sp * 2.8  + s.p1 * 1.6) * 0.10;
 
+                // Contra-correntes (cada linha tem velocidade própria)
+                const w5 = Math.sin(x * 0.027 + l * 0.29 + sp * 0.55 + s.p2 * 0.8) * 0.13;
+                const w6 = Math.sin(x * 0.055 + l * 0.17 + sp * 1.3  + s.p3 * 1.3) * 0.08;
+
+                // Turbulência de alta freq (caos local — "ondulações")
+                const turb = Math.sin(x * 0.14  + l * 1.1 - sp * 4.5 + s.p1) * 0.07
+                           + Math.sin(x * 0.21  + l * 0.7 + sp * 3.2 + s.p2) * 0.04;
+
+                // Soma + função de afinamento dos picos
+                const raw = w1 + w2 + w3 + w4 + w5 + w6 + turb;
+                const dy  = sharpen(raw) * amp;
+
+                const y = baseY + dy;
                 if (!started) { ctx.moveTo(x, y); started = true; }
                 else ctx.lineTo(x, y);
             }
 
             const rgb   = isDark ? '148,185,230' : '30,58,95';
-            const alpha = isDark ? 0.16 : 0.10;
+            const alpha = isDark ? 0.15 : 0.095;
             ctx.strokeStyle = `rgba(${rgb},${alpha})`;
-            ctx.lineWidth   = 0.65;
+            ctx.lineWidth   = 0.6;
             ctx.stroke();
         }
     }
