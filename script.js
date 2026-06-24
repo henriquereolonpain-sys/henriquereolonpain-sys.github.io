@@ -406,12 +406,10 @@ themeToggle.addEventListener('click', () => {
 
     function fbm(x, y, seed) {
         return (
-            Math.sin(x * 0.016 + seed) * 0.42 +
-            Math.sin(x * 0.038 + y * 0.11 + seed * 1.7) * 0.26 +
-            Math.sin(x * 0.082 + y * 0.055 + seed * 0.9) * 0.16 +
-            Math.sin(x * 0.17  + y * 0.028 + seed * 2.3) * 0.09 +
-            Math.sin(x * 0.34  + y * 0.014 + seed * 1.1) * 0.05 +
-            Math.sin(x * 0.68  + y * 0.007 + seed * 0.6) * 0.02
+            Math.sin(x * 0.014 + seed) * 0.50 +
+            Math.sin(x * 0.031 + y * 0.09 + seed * 1.5) * 0.30 +
+            Math.sin(x * 0.058 + y * 0.04 + seed * 0.8) * 0.15 +
+            Math.sin(x * 0.10  + y * 0.02 + seed * 2.0) * 0.05
         );
     }
 
@@ -432,7 +430,7 @@ themeToggle.addEventListener('click', () => {
             ctx.beginPath();
             let started = false;
 
-            for (let x = 0; x <= W; x += 2) {
+            for (let x = 0; x <= W; x += 1) {
                 const nx = x / W;
                 const cPeak  = (nx - 0.52) / 0.22;
                 const cRidge = (nx - 0.65) / 0.09;
@@ -458,7 +456,7 @@ themeToggle.addEventListener('click', () => {
     }
 
     function animate() {
-        t += 0.00025;
+        t += 0.0018;
         draw();
         requestAnimationFrame(animate);
     }
