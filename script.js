@@ -72,6 +72,7 @@ const PROJECTS = {
         desc: 'Dashboard entregue mensalmente à diretoria da Agência Gallo consolidando DRE gerencial, fluxo de caixa, EBITDA, ROI e payback. Pipeline com extração do banco de dados transacional, transformação via SQL e carga no Power BI. Inclui apresentações mensais de Expectativa × Realidade e revisões trimestrais de projeções financeiras para suporte a decisões estratégicas dos squads de negócio.',
         metrics: [{ num:'C-Level', label:'Audiência alvo' }, { num:'Mensal', label:'Cadência de entrega' }],
         github: '', demo: '', video: 'https://player.vimeo.com/video/1156282442',
+        embed: 'https://app.powerbi.com/view?r=eyJrIjoiOTgyNjY5MjQtN2U2NS00NjU1LTkzMTktZDIwMDBmMWY0YTE5IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
         desc_en: 'Dashboard delivered monthly to the board of Agência Gallo consolidating managerial P&L, cash flow, EBITDA, ROI and payback. Pipeline with extraction from the transactional database, SQL transformation and Power BI load. Includes monthly Expectations vs. Actuals presentations and quarterly forecast reviews to support strategic decisions.',
         images: ['img/DRE-1.png', 'img/DRE-2.png'],
     },
@@ -577,11 +578,16 @@ function openModal(id) {
         mediaHtml += `<p class="modal-section-title">${lblImages}</p><div class="modal-gallery">${imgs}</div>`;
     }
 
+    if (p.embed) {
+        const lblEmbed = isEn ? 'Interactive Dashboard' : 'Dashboard Interativo';
+        mediaHtml += `<p class="modal-section-title">${lblEmbed}</p><div class="modal-embed-wrap"><iframe class="modal-embed" src="${p.embed}" frameborder="0" allowfullscreen></iframe></div>`;
+    }
+
     if (p.video) {
         mediaHtml += `<p class="modal-section-title">${lblVideo}</p><iframe class="modal-video" src="${p.video}" allowfullscreen></iframe>`;
     }
 
-    if (!p.images.length && !p.video) {
+    if (!p.images.length && !p.video && !p.embed) {
         mediaHtml = `<div class="modal-empty"><strong>${emptyTitle}</strong>${emptyHint}</div>`;
     }
 
