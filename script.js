@@ -72,7 +72,8 @@ const PROJECTS = {
         desc: 'Dashboard entregue mensalmente à diretoria da empresa consolidando DRE gerencial, fluxo de caixa, EBITDA, ROI e payback. Pipeline com extração do banco de dados transacional, transformação via SQL e carga no Power BI. Inclui apresentações mensais de Expectativa × Realidade e revisões trimestrais de projeções financeiras para suporte a decisões estratégicas dos squads de negócio.',
         metrics: [{ num:'C-Level', label:'Audiência alvo' }, { num:'Mensal', label:'Cadência de entrega' }],
         github: '', demo: '', video: 'https://player.vimeo.com/video/1156282442',
-        embed: 'https://app.powerbi.com/view?r=eyJrIjoiOTgyNjY5MjQtN2U2NS00NjU1LTkzMTktZDIwMDBmMWY0YTE5IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
+        embed:    'https://app.powerbi.com/view?r=eyJrIjoiOTgyNjY5MjQtN2U2NS00NjU1LTkzMTktZDIwMDBmMWY0YTE5IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
+        embed_en: '', // cole aqui o link do portfolio4_en após publicar
         desc_en: 'Dashboard delivered monthly to the board of the company consolidating managerial P&L, cash flow, EBITDA, ROI and payback. Pipeline with extraction from the transactional database, SQL transformation and Power BI load. Includes monthly Expectations vs. Actuals presentations and quarterly forecast reviews to support strategic decisions.',
         images: ['img/DRE-1.png', 'img/DRE-2.png'],
     },
@@ -84,6 +85,8 @@ const PROJECTS = {
         desc: 'Dashboard SQL-integrado no Power BI com design elaborado no Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real. Modela a elasticidade-preço da demanda para prever impacto de variações de preço sobre a receita total, entregando uma ferramenta de tomada de decisão para equipes comerciais.',
         metrics: [{ num:'DAX', label:'Engine de cálculo' }, { num:'Kaggle', label:'Dataset público' }],
         github: '', demo: '', video: 'https://player.vimeo.com/video/1156833912',
+        embed: '',    // cole o link do port_05 após publicar
+        embed_en: '', // cole o link do port_05_en após publicar
         desc_en: 'SQL-integrated Power BI dashboard with Figma design, enabling real-time pricing scenario simulation and revenue projection. Models price-demand elasticity to forecast the impact of price variations on total revenue, delivering a decision-making tool for commercial teams.',
         images: ['img/elasticidade.png'],
     },
@@ -95,6 +98,8 @@ const PROJECTS = {
         desc: 'Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade (ESG) e retornos no mercado brasileiro. Dashboard com cálculo dinâmico de Alpha vs. Ibovespa por empresa e setor, permitindo análise visual da correlação entre práticas ESG e performance financeira no período analisado.',
         metrics: [{ num:'α', label:'Alpha dinâmico vs. IBOV' }, { num:'ESG', label:'Foco temático' }],
         github: '', demo: '', video: '',
+        embed: '',    // cole o link do análise_Esg após publicar
+        embed_en: '', // ESG não tem versão EN separada — pode usar o mesmo link
         desc_en: 'Interactive study using Pearson coefficient to demonstrate the relationship between ESG sustainability criteria and returns in the Brazilian market. Dashboard with dynamic Alpha vs. Ibovespa calculation by company and sector, allowing visual analysis of the correlation between ESG practices and financial performance.',
         images: ['img/esg.png'],
     },
@@ -579,9 +584,10 @@ function openModal(id) {
         mediaHtml += `<p class="modal-section-title">${lblImages}</p><div class="modal-gallery">${imgs}</div>`;
     }
 
-    if (p.embed) {
+    const embedSrc = (isEn && p.embed_en) ? p.embed_en : p.embed;
+    if (embedSrc) {
         const lblEmbed = isEn ? 'Interactive Dashboard' : 'Dashboard Interativo';
-        mediaHtml += `<p class="modal-section-title">${lblEmbed}</p><div class="modal-embed-wrap"><iframe class="modal-embed" src="${p.embed}" frameborder="0" allowfullscreen></iframe></div>`;
+        mediaHtml += `<p class="modal-section-title">${lblEmbed}</p><div class="modal-embed-wrap"><iframe class="modal-embed" src="${embedSrc}" frameborder="0" allowfullscreen></iframe></div>`;
     }
 
     if (p.video) {
