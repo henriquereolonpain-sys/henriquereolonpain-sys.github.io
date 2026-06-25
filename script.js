@@ -99,7 +99,7 @@ const PROJECTS = {
         subtitle: 'SQL + Looker Studio — Dashboard Interativo',
         desc: 'Queries SQL desenvolvidas no VS Code para extração e transformação de dados de vendas, conectadas ao Looker Studio para geração de dashboard com análise de faturamento, clientes, produtos e desempenho por vendedor.',
         metrics: [{ num:'SQL', label:'Queries no VS Code' }, { num:'Looker', label:'Dashboard interativo' }],
-        github: 'https://github.com/henriquereolonpain-sys/Teste_Tecnico_01',
+        github: 'https://github.com/henriquereolonpain-sys/Analise-de-Vendas-SQL-Looker-Studio',
         demo: '',
         video: '',
         embed:    'https://lookerstudio.google.com/embed/reporting/f3521849-cf46-4d2b-8622-105e905ac513',
