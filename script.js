@@ -100,8 +100,8 @@ const PROJECTS = {
         desc: 'Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade (ESG) e retornos no mercado brasileiro. Dashboard com cálculo dinâmico de Alpha vs. Ibovespa por empresa e setor, permitindo análise visual da correlação entre práticas ESG e performance financeira no período analisado.',
         metrics: [{ num:'α', label:'Alpha dinâmico vs. IBOV' }, { num:'ESG', label:'Foco temático' }],
         github: '', demo: '', video: '',
-        embed: '',    // cole o link do análise_Esg após publicar
-        embed_en: '', // ESG não tem versão EN separada — pode usar o mesmo link
+        embed:    'https://app.powerbi.com/view?r=eyJrIjoiZDUyOGJkOWMtMmFiNi00NjU0LWIzMDMtNzg0MjExOTdkMjA2IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
+        embed_en: 'https://app.powerbi.com/view?r=eyJrIjoiZDUyOGJkOWMtMmFiNi00NjU0LWIzMDMtNzg0MjExOTdkMjA2IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
         desc_en: 'Interactive study using Pearson coefficient to demonstrate the relationship between ESG sustainability criteria and returns in the Brazilian market. Dashboard with dynamic Alpha vs. Ibovespa calculation by company and sector, allowing visual analysis of the correlation between ESG practices and financial performance.',
         images: ['img/esg.png'],
     },
