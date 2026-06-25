@@ -75,7 +75,7 @@ const PROJECTS = {
         metrics: [{ num:'C-Level', label:'Audiência alvo' }, { num:'Mensal', label:'Cadência de entrega' }],
         github: '', demo: '', video: 'https://player.vimeo.com/video/1156282442',
         embed:    'https://app.powerbi.com/view?r=eyJrIjoiOTgyNjY5MjQtN2U2NS00NjU1LTkzMTktZDIwMDBmMWY0YTE5IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
-        embed_en: '', // cole aqui o link do portfolio4_en após publicar
+        embed_en: 'https://app.powerbi.com/view?r=eyJrIjoiMmYxZTFhZmUtNzM5Yy00MTFlLWI3OTQtYjUzMDhmMDM1YmNlIiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
         desc_en: 'Dashboard delivered monthly to the board of the company consolidating managerial P&L, cash flow, EBITDA, ROI and payback. Pipeline with extraction from the transactional database, SQL transformation and Power BI load. Includes monthly Expectations vs. Actuals presentations and quarterly forecast reviews to support strategic decisions.',
         images: ['img/DRE-1.png', 'img/DRE-2.png'],
     },
