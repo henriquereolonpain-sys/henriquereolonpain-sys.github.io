@@ -663,28 +663,24 @@ lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lightboxImg) closeLightbox(); });
 
 // ============================================================
-// SCROLL ZOOM — Projetos fills in as you scroll past the hero
+// SCROLL ZOOM — Projetos fills in as it enters the viewport
 // ============================================================
 (function () {
-    const hero    = document.getElementById('home');
     const section = document.getElementById('projetos');
-    if (!hero || !section) return;
+    if (!section) return;
 
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
     function update() {
-        const heroRect = hero.getBoundingClientRect();
-        const vh       = window.innerHeight;
+        const rect = section.getBoundingClientRect();
+        const vh   = window.innerHeight;
 
-        // Progress: 0 = hero fully visible, 1 = hero just left viewport
-        const raw = Math.max(0, Math.min(1, -heroRect.top / (heroRect.height - vh * 0.2)));
+        // 0 = section top at bottom of screen, 1 = section top at top of screen
+        const raw = Math.max(0, Math.min(1, (vh - rect.top) / vh));
         const t   = easeOutCubic(raw);
 
-        const scale  = (0.86 + 0.14 * t).toFixed(4);
-        const radius = Math.round(28 * (1 - t));
-
-        section.style.transform    = `scale(${scale})`;
-        section.style.borderRadius = `${radius}px ${radius}px 0 0`;
+        section.style.transform    = `scale(${(0.86 + 0.14 * t).toFixed(4)})`;
+        section.style.borderRadius = `${Math.round(28 * (1 - t))}px ${Math.round(28 * (1 - t))}px 0 0`;
     }
 
     window.addEventListener('scroll', update, { passive: true });
