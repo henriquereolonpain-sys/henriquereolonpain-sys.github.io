@@ -87,7 +87,7 @@ const PROJECTS = {
         desc: 'Dashboard SQL-integrado no Power BI com design elaborado no Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real. Modela a elasticidade-preço da demanda para prever impacto de variações de preço sobre a receita total, entregando uma ferramenta de tomada de decisão para equipes comerciais.',
         metrics: [{ num:'DAX', label:'Engine de cálculo' }, { num:'Kaggle', label:'Dataset público' }],
         github: '', demo: '', video: 'https://player.vimeo.com/video/1156833912',
-        embed: '',    // cole o link do port_05 após publicar
+        embed:    'https://app.powerbi.com/view?r=eyJrIjoiNDI1M2I0NWEtYzg2OS00N2JlLTg0MjUtZDdhZWU1YTY2YzVkIiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
         embed_en: '', // cole o link do port_05_en após publicar
         desc_en: 'SQL-integrated Power BI dashboard with Figma design, enabling real-time pricing scenario simulation and revenue projection. Models price-demand elasticity to forecast the impact of price variations on total revenue, delivering a decision-making tool for commercial teams.',
         images: ['img/elasticidade.png'],
