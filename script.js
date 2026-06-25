@@ -661,3 +661,32 @@ function closeLightbox() {
 
 lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lightboxImg) closeLightbox(); });
+
+// ============================================================
+// SCROLL ZOOM — Projetos fills in as you scroll past the hero
+// ============================================================
+(function () {
+    const hero    = document.getElementById('home');
+    const section = document.getElementById('projetos');
+    if (!hero || !section) return;
+
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function update() {
+        const heroRect = hero.getBoundingClientRect();
+        const vh       = window.innerHeight;
+
+        // Progress: 0 = hero fully visible, 1 = hero just left viewport
+        const raw = Math.max(0, Math.min(1, -heroRect.top / (heroRect.height - vh * 0.2)));
+        const t   = easeOutCubic(raw);
+
+        const scale  = (0.86 + 0.14 * t).toFixed(4);
+        const radius = Math.round(28 * (1 - t));
+
+        section.style.transform    = `scale(${scale})`;
+        section.style.borderRadius = `${radius}px ${radius}px 0 0`;
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();

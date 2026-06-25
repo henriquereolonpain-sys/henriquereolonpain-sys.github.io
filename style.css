@@ -297,6 +297,14 @@ img { display: block; max-width: 100%; }
     50%      { transform: translateX(-50%) translateY(7px); }
 }
 
+/* ===== SCROLL ZOOM ===== */
+#projetos {
+    transform-origin: top center;
+    will-change: transform, border-radius;
+    overflow: hidden;
+    box-shadow: 0 -16px 60px rgba(30,58,95,.10);
+}
+
 /* ===== SECTIONS ===== */
 .section { padding: 5rem 0; transition: background .3s; }
 .section-alt {
