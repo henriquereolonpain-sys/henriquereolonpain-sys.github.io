@@ -2,8 +2,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    --bg:           #f0f4f8;
-    --bg-alt:       #e8eef5;
+    --bg:           #eef2f7;
+    --bg-alt:       #eef2f7;
     --surface:      #ffffff;
     --border:       #e2e8f0;
     --primary:      #1e3a5f;
@@ -307,14 +307,7 @@ img { display: block; max-width: 100%; }
 
 /* ===== SECTIONS ===== */
 .section { padding: 5rem 0; transition: background .3s; }
-.section-alt {
-    background-color: var(--bg-alt);
-    background-image: radial-gradient(#aec4d8 1.2px, transparent 1.2px);
-    background-size: 28px 28px;
-}
-[data-theme="dark"] .section-alt {
-    background-image: radial-gradient(#1a3254 1.2px, transparent 1.2px);
-}
+.section-alt { background-color: var(--bg-alt); }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .section-header { text-align: center; margin-bottom: 3.5rem; }
 .section-tag { display: none; }
