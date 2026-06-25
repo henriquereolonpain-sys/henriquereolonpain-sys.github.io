@@ -92,6 +92,21 @@ const PROJECTS = {
         desc_en: 'SQL-integrated Power BI dashboard with Figma design, enabling real-time pricing scenario simulation and revenue projection. Models price-demand elasticity to forecast the impact of price variations on total revenue, delivering a decision-making tool for commercial teams.',
         images: ['img/elasticidade.png'],
     },
+    vendas: {
+        gradient: 'linear-gradient(135deg,#4f46e5,#4338ca)',
+        tags: ['SQL','Looker Studio','VS Code','BI'],
+        title: 'Análise de Vendas',
+        subtitle: 'SQL + Looker Studio — Dashboard Interativo',
+        desc: 'Queries SQL desenvolvidas no VS Code para extração e transformação de dados de vendas, conectadas ao Looker Studio para geração de dashboard com análise de faturamento, clientes, produtos e desempenho por vendedor.',
+        metrics: [{ num:'SQL', label:'Queries no VS Code' }, { num:'Looker', label:'Dashboard interativo' }],
+        github: 'https://github.com/henriquereolonpain-sys/Teste_Tecnico_01',
+        demo: '',
+        video: '',
+        embed:    'https://lookerstudio.google.com/embed/reporting/f3521849-cf46-4d2b-8622-105e905ac513',
+        embed_en: 'https://lookerstudio.google.com/embed/reporting/f3521849-cf46-4d2b-8622-105e905ac513',
+        desc_en: 'SQL queries developed in VS Code for sales data extraction and transformation, connected to Looker Studio to generate a dashboard with revenue analysis, customer purchases, product breakdown and salesperson performance.',
+        images: [],
+    },
     esg: {
         gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)',
         tags: ['Power BI','Pearson','ESG','Ibovespa','Mercado de Capitais'],
@@ -211,6 +226,7 @@ const INDEXED_TRANS = {
         ['Análise de Elasticidade de Preço','Price Elasticity Analysis'],
         ['Pipeline Medallion Architecture','Medallion Architecture Pipeline'],
         ['Correlação ESG × Performance','ESG × Performance Correlation'],
+        ['Análise de Vendas','Sales Analysis'],
     ]},
     projDescs: { sel:'.project-desc', v:[
         ['Pipeline ETL automatizado correlacionando o preço do milho com variáveis climáticas regionais. Data Warehouse no BigQuery com camadas staging e semântica, orquestrado via GitHub Actions. Modelos de regressão com 99% de confiança estatística e p-value de 0,007.','Automated ETL pipeline correlating corn prices with regional climate variables. Data Warehouse on BigQuery with staging and semantic layers, orchestrated via GitHub Actions. Regression models with 99% statistical confidence and p-value of 0.007.'],
@@ -220,6 +236,7 @@ const INDEXED_TRANS = {
         ['Dashboard SQL-integrado no Power BI com design Figma, permitindo simulação de cenários de precificação e projeção de receita em tempo real com base em elasticidade-preço da demanda.','SQL-integrated Power BI dashboard with Figma design, enabling real-time pricing scenario simulation and revenue projection based on price-demand elasticity.'],
         ['Pipeline de dados com arquitetura Medallion implementado no Databricks Community Edition. Ingestão de CSVs na camada Bronze, limpeza e transformações PySpark na Silver e visões analíticas prontas para consumo na Gold.','Data pipeline with Medallion Architecture in Databricks Community Edition. CSV ingestion at Bronze, PySpark cleaning and transformations at Silver, and analytics-ready views at Gold.'],
         ['Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade (ESG) e retornos no mercado brasileiro, com cálculo dinâmico de Alpha vs. Ibovespa.','Interactive study using Pearson coefficient to demonstrate the relationship between ESG sustainability criteria and returns in the Brazilian market, with dynamic Alpha vs. Ibovespa calculation.'],
+        ['Queries SQL desenvolvidas no VS Code para extração e transformação de dados de vendas, conectadas ao Looker Studio para geração de dashboard com análise de faturamento, clientes, produtos e desempenho por vendedor.','SQL queries developed in VS Code for sales data extraction and transformation, connected to Looker Studio to generate a dashboard with revenue analysis, customer purchases, product breakdown and salesperson performance.'],
     ]},
     highlightLabels: { sel:'.highlight-label', v:[
         ['Confiança estatística','Statistical confidence'],
@@ -236,6 +253,8 @@ const INDEXED_TRANS = {
         ['Delta Lake','Delta Lake'],
         ['Alpha dinâmico vs. IBOV','Dynamic Alpha vs. IBOV'],
         ['Foco temático','Thematic focus'],
+        ['Queries no VS Code','Queries in VS Code'],
+        ['Dashboard interativo','Interactive dashboard'],
     ]},
     projSubtitles: { sel:'.project-subtitle', v:[
         ['Preço do Milho — Rio Grande do Sul','Corn Price — Rio Grande do Sul'],
@@ -245,6 +264,7 @@ const INDEXED_TRANS = {
         ['Revenue Forecasting Dinâmico','Dynamic Revenue Forecasting'],
         ['Bronze → Silver → Gold — Databricks','Bronze → Silver → Gold — Databricks'],
         ['Mercado Brasileiro de Capitais','Brazilian Capital Markets'],
+        ['SQL + Looker Studio — Dashboard Interativo','SQL + Looker Studio — Interactive Dashboard'],
     ]},
     skillTitles: { sel:'.skill-cat-title', v:[
         ['Linguagens','Languages'],
