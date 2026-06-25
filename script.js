@@ -61,6 +61,8 @@ const PROJECTS = {
         metrics: [{ num:'3', label:'Algoritmos comparados' }, { num:'Full', label:'Ciclo ML completo' }],
         github: 'https://github.com/henriquereolonpain-sys/Inter-166-Analytics',
         demo: '', video: 'https://player.vimeo.com/video/1175155235',
+        embed: 'https://app.powerbi.com/view?r=eyJrIjoiMjU2MjM5YzItYzdmMC00ZmQ0LTkyOGMtNjQ3NzczZmJhMWQ0IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
+        embed_en: 'https://app.powerbi.com/view?r=eyJrIjoiMjU2MjM5YzItYzdmMC00ZmQ0LTkyOGMtNjQ3NzczZmJhMWQ0IiwidCI6ImE0NWNjZjE0LTMxOTQtNGE2My1iNmRmLTExMWUyMWU2MDIzNSJ9',
         desc_en: 'Complete Machine Learning pipeline for predicting Brazilian Championship match results. Full ML cycle: data collection, feature engineering, training, validation and communication. Comparison between Random Forest, Logistic Regression and Naive Bayes with confusion matrix and accuracy evaluation.',
         images: [],
     },
