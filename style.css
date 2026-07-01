@@ -343,6 +343,46 @@ img { display: block; max-width: 100%; }
 
 /* ===== PROJECTS ===== */
 .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+
+/* --- Neon circling border — card em destaque --- */
+.card-neon-wrap {
+    position: relative;
+    padding: 2px;
+    border-radius: calc(var(--radius-lg) + 2px);
+    animation: neon-pulse 2s ease-in-out infinite;
+}
+.card-neon-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 160deg,
+        #5eead4 210deg,
+        #0d9488 255deg,
+        #5eead4 300deg,
+        transparent 345deg,
+        transparent 360deg
+    );
+    animation: neon-spin 2.5s linear infinite;
+    z-index: 0;
+}
+.card-neon-wrap > .project-card {
+    position: relative;
+    z-index: 1;
+    border: none;
+    height: 100%;
+}
+@keyframes neon-spin {
+    to { transform: rotate(360deg); }
+}
+@keyframes neon-pulse {
+    0%,100% { filter: drop-shadow(0 0 5px rgba(13,148,136,.4)) drop-shadow(0 0 10px rgba(13,148,136,.15)); }
+    50%      { filter: drop-shadow(0 0 14px rgba(94,234,212,.9)) drop-shadow(0 0 28px rgba(13,148,136,.4)); }
+}
+
 .project-card {
     background: var(--surface); border-radius: var(--radius-lg);
     overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border);
