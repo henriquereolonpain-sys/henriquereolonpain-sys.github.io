@@ -7,6 +7,19 @@
 //   images → array de caminhos de imagem (ex: ['img/milho-1.jpg', 'img/milho-2.jpg'])
 // ============================================================
 const PROJECTS = {
+    acidentes: {
+        gradient: 'linear-gradient(135deg,#0d9488,#0f766e)',
+        tags: ['Python','Streamlit','DuckDB','Folium','BeautifulSoup','GeoPy'],
+        title: 'Mapa de Acidentes de Trânsito',
+        subtitle: 'Passo Fundo & Região — PRF + Imprensa Local',
+        desc: 'Pipeline ponta a ponta que agrega 7.300+ matérias de 3 veículos locais (RD Planalto, Rádio Uirapuru, GZH) e 1.150 registros oficiais da PRF (2014–2026) para mapear acidentes em Passo Fundo e região. Sete etapas automatizadas: scraping → NLP em PT-BR para extração de localização → geocodificação via Nominatim e Overpass API → enriquecimento de matérias fatais → deduplicação cross-source → score de confiança por concordância entre fontes → dashboard Streamlit com mapa de calor, camadas por severidade, série temporal e heatmap horário. Design system próprio sobre tiles CARTO Voyager.',
+        desc_en: 'End-to-end pipeline aggregating 7,300+ news articles from 3 local outlets (RD Planalto, Rádio Uirapuru, GZH) and 1,150 official PRF records (2014–2026) to map traffic accidents in Passo Fundo and surroundings. Seven automated steps: scraping → PT-BR NLP for location extraction → geocoding via Nominatim and Overpass API → enrichment of fatal articles → cross-source deduplication → confidence scoring → Streamlit dashboard with heat map, severity layers, time series and hour-of-day heatmap. Custom design system over CARTO Voyager tiles.',
+        metrics: [{ num:'7.300+', label:'Matérias coletadas' }, { num:'2014–2026', label:'Série histórica' }],
+        github: 'https://github.com/henriquereolonpain-sys/acidentes-transito-passo-fundo',
+        demo: 'https://acidentes-transito-pf.streamlit.app/',
+        video: '', embed: '', embed_en: '',
+        images: [],
+    },
     milho: {
         gradient: 'linear-gradient(135deg,#2563eb,#1d4ed8)',
         tags: ['Python','BigQuery','GitHub Actions','Econometria','Web Scraping'],
@@ -157,7 +170,7 @@ const PAGE_TRANS = {
     '.footer-nav a[href="#habilidades"]': ['Habilidades','Skills'],
     '.footer-nav a[href="#contato"]':     ['Contato','Contact'],
     // HERO
-    '.hero-badge':              ['📍 Passo Fundo, RS · Remoto','📍 Passo Fundo, RS · Remote'],
+    '.hero-badge':              ['Passo Fundo - Brasil / Remoto','Passo Fundo - Brasil / Remote'],
     '.hero-title':              ['Analista de Dados','Data Analyst'],
     '.hero-desc':               ['Transformo dados em decisões. Especialista em pipelines ETL/ELT, Data Warehouse e dashboards que traduzem complexidade financeira em insights estratégicos.','I turn data into decisions. Specialist in ETL/ELT pipelines, Data Warehouse and dashboards that translate financial complexity into strategic insights.'],
     '.scroll-indicator span':   ['Role para baixo','Scroll down'],
@@ -217,8 +230,9 @@ const INDEXED_TRANS = {
         ['Ao longo de mais de 4 anos atuei em finanças corporativas em contextos que vão de startups a multinacionais, incluindo experiência em Lisboa, Portugal, antes de direcionar minha carreira para engenharia e análise de dados.','Over 4+ years, I worked in corporate finance across contexts ranging from startups to multinationals, including experience in Lisbon, Portugal, before pivoting my career to data engineering and analytics.'],
         ['Inglês fluente  ·  CPA-20 (ANBIMA)  ·  Apaixonado por econometria aplicada','Fluent English  ·  CPA-20 (ANBIMA)  ·  Passionate about applied econometrics'],
     ]},
-    // Ordem deve seguir o DOM do HTML: milho, recomendacao, brasileirao, dashboard, elasticidade, projeto03, esg
+    // Ordem deve seguir o DOM do HTML: acidentes, milho, recomendacao, brasileirao, dashboard, elasticidade, projeto03, esg, vendas
     projTitles: { sel:'.project-title', v:[
+        ['Mapa de Acidentes de Trânsito','Traffic Accident Map'],
         ['Monitoramento e Previsão Econométrica','Econometric Monitoring & Forecasting'],
         ['Sistema de Recomendação Híbrido','Hybrid Recommendation System'],
         ['Modelo Preditivo Esportivo','Sports Prediction Model'],
@@ -229,6 +243,7 @@ const INDEXED_TRANS = {
         ['Análise de Vendas','Sales Analysis'],
     ]},
     projDescs: { sel:'.project-desc', v:[
+        ['Pipeline ponta a ponta que agrega 7.300+ matérias jornalísticas e 1.150 registros oficiais da PRF para mapear acidentes de trânsito de 2014 a 2026. Geocodificação automática, deduplicação cross-source e dashboard interativo com mapa de calor, camadas por severidade e heatmap horário.','End-to-end pipeline aggregating 7,300+ news articles and 1,150 official PRF records to map traffic accidents from 2014 to 2026. Automatic geocoding, cross-source deduplication and interactive dashboard with heat map, severity layers and hour-of-day heatmap.'],
         ['Pipeline ETL automatizado correlacionando o preço do milho com variáveis climáticas regionais. Data Warehouse no BigQuery com camadas staging e semântica, orquestrado via GitHub Actions. Modelos de regressão com 99% de confiança estatística e p-value de 0,007.','Automated ETL pipeline correlating corn prices with regional climate variables. Data Warehouse on BigQuery with staging and semantic layers, orchestrated via GitHub Actions. Regression models with 99% statistical confidence and p-value of 0.007.'],
         ['Motor de recomendação financeiro com banco de dados orientado a grafos (Neo4j AuraDB), modelando rede de relacionamentos entre cooperados. Filtro colaborativo implementado diretamente no banco para identificar clusters por similaridade de consumo e faixa de renda.','Financial recommendation engine with graph database (Neo4j AuraDB), modeling the relationship network between cooperative members. Collaborative filter implemented directly in the database to identify clusters by consumption similarity and income range.'],
         ['Pipeline completo de Machine Learning para previsão de resultados do Campeonato Brasileiro. Comparação de múltiplos algoritmos (Random Forest, Regressão Logística, Naive Bayes) com feature engineering, treinamento e avaliação por matriz de confusão.','Complete Machine Learning pipeline for predicting Brazilian Championship results. Comparison of multiple algorithms (Random Forest, Logistic Regression, Naive Bayes) with feature engineering, training and confusion matrix evaluation.'],
@@ -239,6 +254,8 @@ const INDEXED_TRANS = {
         ['Queries SQL desenvolvidas no VS Code para extração e transformação de dados de vendas, conectadas ao Looker Studio para geração de dashboard com análise de faturamento, clientes, produtos e desempenho por vendedor.','SQL queries developed in VS Code for sales data extraction and transformation, connected to Looker Studio to generate a dashboard with revenue analysis, customer purchases, product breakdown and salesperson performance.'],
     ]},
     highlightLabels: { sel:'.highlight-label', v:[
+        ['Matérias coletadas','Articles collected'],
+        ['Série histórica','Historical series'],
         ['Confiança estatística','Statistical confidence'],
         ['P-value do modelo','Model p-value'],
         ['Next Best Offer','Next Best Offer'],
@@ -257,6 +274,7 @@ const INDEXED_TRANS = {
         ['Dashboard interativo','Interactive dashboard'],
     ]},
     projSubtitles: { sel:'.project-subtitle', v:[
+        ['Passo Fundo & Região — PRF + Imprensa Local','Passo Fundo & Region — PRF + Local Press'],
         ['Preço do Milho — Rio Grande do Sul','Corn Price — Rio Grande do Sul'],
         ['Next Best Offer — Setor de Cooperativas','Next Best Offer — Credit Unions Sector'],
         ['Brasileirão 2026','Brazilian Championship 2026'],
