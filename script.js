@@ -198,7 +198,6 @@ const PAGE_TRANS = {
     // CONTACT
     '#contato .section-tag':   ['Vamos conversar',"Let's talk"],
     '#contato .section-title': ['Contato','Contact'],
-    '.contact-sub':            ['Aberto a oportunidades remotas em dados, BI e engenharia analítica.','Open to remote opportunities in data, BI, and analytical engineering.'],
     // FOOTER
     '.footer-tagline': ['Dados que decidem.','Data that decides.'],
 };
