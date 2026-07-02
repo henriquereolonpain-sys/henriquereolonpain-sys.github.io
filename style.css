@@ -344,43 +344,78 @@ img { display: block; max-width: 100%; }
 /* ===== PROJECTS ===== */
 .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
 
-/* --- Neon circling border — card em destaque --- */
+/* --- Neon border beam — luz percorrendo toda a borda do card em destaque --- */
+@property --neon-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
 .card-neon-wrap {
     position: relative;
-    padding: 2px;
-    border-radius: calc(var(--radius-lg) + 2px);
-    animation: neon-pulse 2s ease-in-out infinite;
+    border-radius: var(--radius-lg);
+    isolation: isolate;
 }
-.card-neon-wrap::before {
+/* Anel de borda: teal constante + cometa branco-brilhante girando */
+.card-neon-wrap::before,
+.card-neon-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        transparent 160deg,
-        #5eead4 210deg,
-        #0d9488 255deg,
-        #5eead4 300deg,
-        transparent 345deg,
-        transparent 360deg
-    );
-    animation: neon-spin 2.5s linear infinite;
-    z-index: 0;
+    padding: 3px;
+    background: conic-gradient(from var(--neon-angle),
+        rgba(20,184,166,.30) 0deg,
+        rgba(20,184,166,.30) 210deg,
+        #2dd4bf 280deg,
+        #5eead4 310deg,
+        #ffffff 330deg,
+        #99f6e4 345deg,
+        rgba(20,184,166,.30) 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: neon-rotate 3s linear infinite;
+    pointer-events: none;
 }
+.card-neon-wrap::before { z-index: 2; }                               /* anel nítido sobre a borda */
+.card-neon-wrap::after  { z-index: 0; filter: blur(11px); opacity: 1; }  /* glow difuso e forte ao redor */
 .card-neon-wrap > .project-card {
     position: relative;
     z-index: 1;
     border: none;
     height: 100%;
 }
-@keyframes neon-spin {
-    to { transform: rotate(360deg); }
+@keyframes neon-rotate {
+    to { --neon-angle: 360deg; }
 }
-@keyframes neon-pulse {
-    0%,100% { filter: drop-shadow(0 0 5px rgba(13,148,136,.4)) drop-shadow(0 0 10px rgba(13,148,136,.15)); }
-    50%      { filter: drop-shadow(0 0 14px rgba(94,234,212,.9)) drop-shadow(0 0 28px rgba(13,148,136,.4)); }
+
+/* --- Selo "Projeto principal · Em andamento" --- */
+.project-badge-live {
+    display: inline-flex; align-items: center; gap: .5rem;
+    align-self: flex-start;
+    background: rgba(13,148,136,.1);
+    color: #0d9488;
+    border: 1px solid rgba(13,148,136,.28);
+    font-size: .7rem; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: .35rem .7rem; border-radius: 999px;
+    margin-bottom: .875rem;
+}
+[data-theme="dark"] .project-badge-live { background: rgba(45,212,191,.12); color: #5eead4; border-color: rgba(45,212,191,.3); }
+.live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #10b981; flex-shrink: 0;
+    box-shadow: 0 0 0 0 rgba(16,185,129,.6);
+    animation: live-ping 1.6s ease-out infinite;
+}
+@keyframes live-ping {
+    0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.55); }
+    70%  { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
+    100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .card-neon-wrap::before, .card-neon-wrap::after, .live-dot { animation: none; }
 }
 
 .project-card {

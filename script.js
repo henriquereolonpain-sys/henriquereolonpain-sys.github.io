@@ -181,6 +181,7 @@ const PAGE_TRANS = {
     // PROJECTS
     '#projetos .section-tag':   ['Portfólio técnico','Technical portfolio'],
     '#projetos .section-title': ['Projetos','Projects'],
+    '.project-badge-live .live-text': ['Projeto principal · Em andamento','Flagship project · In progress'],
     // EXPERIENCE
     '#experiencia .section-tag':   ['Trajetória','Career'],
     '#experiencia .section-title': ['Experiência Profissional','Professional Experience'],
