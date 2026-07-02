@@ -18,7 +18,7 @@ const PROJECTS = {
         github: 'https://github.com/henriquereolonpain-sys/acidentes-transito-passo-fundo',
         demo: 'https://acidentes-transito-pf.streamlit.app/',
         video: '', embed: '', embed_en: '',
-        images: [],
+        images: ['img/acidentes-main.png', 'img/acidentes-2.png', 'img/acidentes-3.png'],
     },
     milho: {
         gradient: 'linear-gradient(135deg,#2563eb,#1d4ed8)',
