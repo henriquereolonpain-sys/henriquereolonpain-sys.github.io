@@ -507,13 +507,31 @@ themeToggle.addEventListener('click', () => {
         }
     }
 
+    let rafId = 0;
+    let running = false;
+
     function animate() {
         t += 0.0018;
         draw();
-        requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(animate);
     }
 
-    animate();
+    function start() { if (!running) { running = true; rafId = requestAnimationFrame(animate); } }
+    function stop()  { running = false; cancelAnimationFrame(rafId); }
+
+    // Loop só roda com o hero visível e sem prefers-reduced-motion
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const heroEl = canvas.closest('.hero') || canvas;
+
+    const visObs = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !reduceMotion.matches) start();
+        else stop();
+    });
+    visObs.observe(heroEl);
+
+    reduceMotion.addEventListener('change', e => { if (e.matches) { stop(); draw(); } });
+
+    draw(); // primeiro frame estático (cobre reduced-motion e pré-scroll)
 })();
 
 // ============================================================
@@ -715,9 +733,20 @@ lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target 
     const section = document.getElementById('projetos');
     if (!section) return;
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
+    let lastRadius = -1;
+
     function update() {
+        if (reduceMotion.matches) {
+            section.style.transform = '';
+            section.style.borderRadius = '';
+            lastRadius = -1;
+            return;
+        }
+
         const rect = section.getBoundingClientRect();
         const vh   = window.innerHeight;
 
@@ -725,10 +754,17 @@ lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target 
         const raw = Math.max(0, Math.min(1, (vh - rect.top) / vh));
         const t   = easeOutCubic(raw);
 
-        section.style.transform    = `scale(${(0.86 + 0.14 * t).toFixed(4)})`;
-        section.style.borderRadius = `${Math.round(28 * (1 - t))}px ${Math.round(28 * (1 - t))}px 0 0`;
+        section.style.transform = `scale(${(0.86 + 0.14 * t).toFixed(4)})`;
+
+        // border-radius repinta a seção inteira — só atualiza quando o valor inteiro muda
+        const r = Math.round(28 * (1 - t));
+        if (r !== lastRadius) {
+            lastRadius = r;
+            section.style.borderRadius = `${r}px ${r}px 0 0`;
+        }
     }
 
     window.addEventListener('scroll', update, { passive: true });
+    reduceMotion.addEventListener('change', update);
     update();
 })();
