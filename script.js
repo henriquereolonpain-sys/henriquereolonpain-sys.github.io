@@ -133,6 +133,18 @@ const PROJECTS = {
         desc_en: 'Interactive study using Pearson coefficient to demonstrate the relationship between ESG sustainability criteria and returns in the Brazilian market. Dashboard with dynamic Alpha vs. Ibovespa calculation by company and sector, allowing visual analysis of the correlation between ESG practices and financial performance.',
         images: ['img/esg.png'],
     },
+    'analista-ia': {
+        gradient: 'linear-gradient(135deg,#0d9488,#0f766e)',
+        tags: ['Next.js','TypeScript','Anthropic API','Tool Use','Claude Sonnet 5'],
+        title: 'Analista Financeiro IA',
+        subtitle: 'Agente com Tool Use — Vale · WEG · Petrobras',
+        desc: 'Assistente de análise financeira que combina dados estruturados (Receita, Lucro Líquido, EBITDA, Ativo Total, Patrimônio Líquido de 2022–2025) com tool calling via Anthropic SDK: em vez de deixar o modelo estimar números, ele chama funções que calculam ROE, margens, liquidez corrente e endividamento a partir de dados reais de Vale, WEG e Petrobras, com contexto qualitativo por empresa. Case study de portfólio — repositório aberto, sem instância pública ativa (o chat exige uma chave de API própria para rodar).',
+        metrics: [{ num:'4', label:'Tools do agente' }, { num:'2022–25', label:'Dados reais B3' }],
+        github: 'https://github.com/henriquereolonpain-sys/analista-financeiro-ai',
+        demo: '', video: '', embed: '', embed_en: '',
+        desc_en: 'Financial analysis assistant that combines structured data (Revenue, Net Income, EBITDA, Total Assets, Equity from 2022–2025) with tool calling via the Anthropic SDK: instead of letting the model estimate numbers, it calls functions that compute ROE, margins, current ratio and leverage from real data on Vale, WEG and Petrobras, plus per-company qualitative context. Portfolio case study — open repository, no public instance running (the chat requires your own API key to operate).',
+        images: [],
+    },
 };
 
 // ============================================================
@@ -241,6 +253,7 @@ const INDEXED_TRANS = {
         ['Pipeline Medallion Architecture','Medallion Architecture Pipeline'],
         ['Correlação ESG × Performance','ESG × Performance Correlation'],
         ['Análise de Vendas','Sales Analysis'],
+        ['Analista Financeiro IA','Financial Analyst AI'],
     ]},
     projDescs: { sel:'.project-desc', v:[
         ['Pipeline ponta a ponta que agrega 7.300+ matérias jornalísticas e 1.150 registros oficiais da PRF para mapear acidentes de trânsito de 2014 a 2026. Geocodificação automática, deduplicação cross-source e dashboard interativo com mapa de calor, camadas por severidade e heatmap horário.','End-to-end pipeline aggregating 7,300+ news articles and 1,150 official PRF records to map traffic accidents from 2014 to 2026. Automatic geocoding, cross-source deduplication and interactive dashboard with heat map, severity layers and hour-of-day heatmap.'],
@@ -252,6 +265,7 @@ const INDEXED_TRANS = {
         ['Pipeline de dados com arquitetura Medallion implementado no Databricks Community Edition. Ingestão de CSVs na camada Bronze, limpeza e transformações PySpark na Silver e visões analíticas prontas para consumo na Gold.','Data pipeline with Medallion Architecture in Databricks Community Edition. CSV ingestion at Bronze, PySpark cleaning and transformations at Silver, and analytics-ready views at Gold.'],
         ['Estudo interativo usando coeficiente de Pearson para demonstrar a relação entre critérios de sustentabilidade (ESG) e retornos no mercado brasileiro, com cálculo dinâmico de Alpha vs. Ibovespa.','Interactive study using Pearson coefficient to demonstrate the relationship between ESG sustainability criteria and returns in the Brazilian market, with dynamic Alpha vs. Ibovespa calculation.'],
         ['Queries SQL desenvolvidas no VS Code para extração e transformação de dados de vendas, conectadas ao Looker Studio para geração de dashboard com análise de faturamento, clientes, produtos e desempenho por vendedor.','SQL queries developed in VS Code for sales data extraction and transformation, connected to Looker Studio to generate a dashboard with revenue analysis, customer purchases, product breakdown and salesperson performance.'],
+        ['Assistente de IA que combina dados financeiros estruturados (2022–2025) com tool calling: em vez de o modelo "adivinhar" números, ele chama funções que calculam ROE, margens, liquidez e endividamento a partir de dados reais das três empresas, com citação da fonte.','AI assistant combining structured financial data (2022–2025) with tool calling: instead of the model "guessing" numbers, it calls functions that compute ROE, margins, liquidity and leverage from real data on the three companies, with source citation.'],
     ]},
     highlightLabels: { sel:'.highlight-label', v:[
         ['Matérias coletadas','Articles collected'],
@@ -272,6 +286,8 @@ const INDEXED_TRANS = {
         ['Foco temático','Thematic focus'],
         ['Queries no VS Code','Queries in VS Code'],
         ['Dashboard interativo','Interactive dashboard'],
+        ['Tools do agente','Agent tools'],
+        ['Dados reais B3','Real B3 data'],
     ]},
     projSubtitles: { sel:'.project-subtitle', v:[
         ['Passo Fundo & Região — PRF + Imprensa Local','Passo Fundo & Region — PRF + Local Press'],
@@ -283,6 +299,7 @@ const INDEXED_TRANS = {
         ['Bronze → Silver → Gold — Databricks','Bronze → Silver → Gold — Databricks'],
         ['Mercado Brasileiro de Capitais','Brazilian Capital Markets'],
         ['SQL + Looker Studio — Dashboard Interativo','SQL + Looker Studio — Interactive Dashboard'],
+        ['Agente com Tool Use — Vale · WEG · Petrobras','Tool Use Agent — Vale · WEG · Petrobras'],
     ]},
     skillTitles: { sel:'.skill-cat-title', v:[
         ['Linguagens','Languages'],
