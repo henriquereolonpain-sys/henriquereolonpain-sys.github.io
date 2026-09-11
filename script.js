@@ -182,9 +182,9 @@ const PAGE_TRANS = {
     '.footer-nav a[href="#habilidades"]': ['Habilidades','Skills'],
     '.footer-nav a[href="#contato"]':     ['Contato','Contact'],
     // HERO
-    '.hero-badge':              ['Passo Fundo - Brasil / Remoto','Passo Fundo - Brasil / Remote'],
-    '.hero-title':              ['Analista de Dados','Data Analyst'],
-    '.hero-desc':               ['Transformo dados em decisões. Especialista em pipelines ETL/ELT, Data Warehouse e dashboards que traduzem complexidade financeira em insights estratégicos.','I turn data into decisions. Specialist in ETL/ELT pipelines, Data Warehouse and dashboards that translate financial complexity into strategic insights.'],
+    '.hero-badge':              ['Passo Fundo - Brasil','Passo Fundo - Brasil'],
+    '.hero-title':              ['Analista de Dados & Processos','Data & Process Analyst'],
+    '.hero-desc':               ['Transformo dados em decisões. Hoje isso também significa melhorar os processos produtivos físicos que geram esses dados — porque não existe análise boa com dado mal capturado.','I turn data into decisions. Today that also means improving the physical production processes that generate that data — because there’s no good analysis with badly captured data.'],
     '.scroll-indicator span':   ['Role para baixo','Scroll down'],
     // ABOUT
     '#sobre .section-tag':      ['Quem sou','Who I am'],
@@ -226,14 +226,14 @@ const INDEXED_TRANS = {
         ['Pipeline ETL / ELT','ETL / ELT Pipeline'],
         ['BI & Dashboards','BI & Dashboards'],
         ['Data Science / ML','Data Science / ML'],
-        ['Domínio Financeiro','Financial Domain'],
+        ['Processos Produtivos','Production Processes'],
         ['Lakehouse / Engenharia','Lakehouse / Engineering'],
     ]},
     vcValues: { sel:'.vc-value', v:[
         ['Python · GCP · BigQuery','Python · GCP · BigQuery'],
         ['Power BI · Looker · Tableau','Power BI · Looker · Tableau'],
         ['Scikit-learn · Econometria','Scikit-learn · Econometrics'],
-        ['DRE · FP&A · CPA-20','P&L · FP&A · CPA-20'],
+        ['Gargalos · Custos · Mapeamento','Bottlenecks · Costs · Mapping'],
         ['Databricks · Medallion · Delta Lake','Databricks · Medallion · Delta Lake'],
     ]},
     aboutParas: { sel:'.about-text p', v:[
@@ -338,16 +338,24 @@ const INDEXED_TRANS = {
 
 // Experiência profissional
 const EXP_TRANS = [
+    { role:['Analista de Dados e Processos','Data & Process Analyst'],
+      date:['Ago 2026 — Presente','Aug 2026 — Present'],
+      bullets:[
+        ['Análise de gargalos produtivos e indicadores de desempenho da fábrica','Analyzed production bottlenecks and factory performance indicators'],
+        ['Apuração e análise de custos do processo produtivo','Tracked and analyzed production process costs'],
+        ['Elaboração e acompanhamento de DRE e fluxo de caixa','Prepared and monitored P&L and cash flow statements'],
+        ['Mapeamento, redesenho e validação de processos internos','Mapped, redesigned and validated internal processes'],
+        ['Estruturação de dados e relatórios para apoio à decisão','Structured data and reports to support decision-making'],
+    ]},
     { role:['Analista de Dados & Coord. Financeiro','Data Analyst & Financial Coordinator'],
-      date:['Mai 2024 — Presente','May 2024 — Present'],
+      date:['Mai 2024 — Ago 2026','May 2024 — Aug 2026'],
       bullets:[
         ['Estruturei pipeline mensal de consolidação de dados com extração, transformação SQL e carga no Power BI para dashboards de DRE, EBITDA, ROI e fluxo de caixa','Built monthly data consolidation pipeline with SQL extraction, transformation and Power BI load for P&L, EBITDA, ROI and cash flow dashboards'],
         ['Conduzi apresentações mensais de resultados (Expectativa × Realidade) e revisões trimestrais de projeções para a diretoria','Led monthly results presentations (Expectations × Actuals) and quarterly forecast reviews for the board'],
         ['Arquitetei os controles financeiros iniciais da empresa (DRE gerencial e fluxo de caixa), estabelecendo a base de governança de dados',"Architected the company's initial financial controls (P&L and cash flow), establishing the data governance foundation"],
-        ['Liderei equipe de desenvolvimento de produto com metodologia Agile, reduzindo lead time de entregas','Led product development team using Agile methodology, reducing delivery lead time'],
     ]},
     { role:['Coordenador Financeiro','Financial Coordinator'],
-      date:['Set 2023 — Dez 2023','Sep 2023 — Dec 2023'],
+      date:['Set 2023 — Abr 2024','Sep 2023 — Apr 2024'],
       bullets:[
         ['Gerenciei operações de fluxo de caixa e elaborei relatórios financeiros estratégicos para a diretoria','Managed cash flow operations and prepared strategic financial reports for the board'],
         ['Foco em otimização de custos e governança financeira','Focus on cost optimization and financial governance'],
