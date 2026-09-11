@@ -17,6 +17,8 @@ const PROJECTS = {
         metrics: [{ num:'7.300+', label:'Matérias coletadas' }, { num:'2014–2026', label:'Série histórica' }],
         github: 'https://github.com/henriquereolonpain-sys/acidentes-transito-passo-fundo',
         demo: 'https://acidentes-transito-pf.streamlit.app/',
+        doc: 'https://github.com/henriquereolonpain-sys/acidentes-transito-passo-fundo/blob/main/docs/oficio-199-2026-pedido-52.pdf',
+        docLabel: '📄 Ofício da Prefeitura', docLabel_en: '📄 City Hall Reply',
         video: '', embed: '', embed_en: '',
         images: ['img/acidentes-main.png', 'img/acidentes-2.png', 'img/acidentes-3.png'],
     },
@@ -184,7 +186,7 @@ const PAGE_TRANS = {
     // HERO
     '.hero-badge':              ['Passo Fundo - Brasil','Passo Fundo - Brasil'],
     '.hero-title':              ['Analista de Dados & Processos','Data & Process Analyst'],
-    '.hero-desc':               ['Transformo dados em decisões. Hoje isso também significa melhorar os processos produtivos físicos que geram esses dados — porque não existe análise boa com dado mal capturado.','I turn data into decisions. Today that also means improving the physical production processes that generate that data — because there’s no good analysis with badly captured data.'],
+    '.hero-desc':               ['Transformo dados em decisões. Hoje isso também significa melhorar os processos produtivos físicos que geram esses dados, porque não existe análise boa com dado mal capturado.','I turn data into decisions. Today that also means improving the physical production processes that generate that data, because there’s no good analysis with badly captured data.'],
     '.scroll-indicator span':   ['Role para baixo','Scroll down'],
     // ABOUT
     '#sobre .section-tag':      ['Quem sou','Who I am'],
@@ -193,7 +195,7 @@ const PAGE_TRANS = {
     // PROJECTS
     '#projetos .section-tag':   ['Portfólio técnico','Technical portfolio'],
     '#projetos .section-title': ['Projetos','Projects'],
-    '.project-badge-live .live-text': ['Projeto principal · Em andamento','Flagship project · In progress'],
+    '.project-badge-live .live-text': ['Projeto principal · Concluído','Flagship project · Completed'],
     // EXPERIENCE
     '#experiencia .section-tag':   ['Trajetória','Career'],
     '#experiencia .section-title': ['Experiência Profissional','Professional Experience'],
@@ -238,7 +240,7 @@ const INDEXED_TRANS = {
     ]},
     aboutParas: { sel:'.about-text p', v:[
         [null,null],
-        ['Meu diferencial está em unir domínio técnico de dados — ETL, Data Warehouse, Machine Learning — com profundo conhecimento do negócio financeiro. Isso me permite traduzir requisitos de negócio em arquiteturas que geram valor real, entregando dashboards e insights que chegam à mesa de quem decide.','My edge lies in combining technical data expertise — ETL, Data Warehouse, Machine Learning — with deep financial domain knowledge. This allows me to translate business requirements into architectures that generate real value, delivering dashboards and insights that reach decision-makers.'],
+        ['Meu diferencial está em unir domínio técnico de dados (ETL, Data Warehouse, Machine Learning) com profundo conhecimento do negócio financeiro. Isso me permite traduzir requisitos de negócio em arquiteturas que geram valor real, entregando dashboards e insights que chegam à mesa de quem decide.','My edge lies in combining technical data expertise (ETL, Data Warehouse, Machine Learning) with deep financial domain knowledge. This allows me to translate business requirements into architectures that generate real value, delivering dashboards and insights that reach decision-makers.'],
         ['Ao longo de mais de 4 anos atuei em finanças corporativas em contextos que vão de startups a multinacionais, incluindo experiência em Lisboa, Portugal, antes de direcionar minha carreira para engenharia e análise de dados.','Over 4+ years, I worked in corporate finance across contexts ranging from startups to multinationals, including experience in Lisbon, Portugal, before pivoting my career to data engineering and analytics.'],
         ['Inglês fluente  ·  CPA-20 (ANBIMA)  ·  Apaixonado por econometria aplicada','Fluent English  ·  CPA-20 (ANBIMA)  ·  Passionate about applied econometrics'],
     ]},
@@ -682,10 +684,11 @@ function openModal(id) {
     }
 
     // Rebuild actionsHtml with translated labels
-    if (p.github || p.demo) {
+    if (p.github || p.demo || p.doc) {
         actionsHtml = `<p class="modal-section-title">${lblLinks}</p><div class="modal-actions">`;
         if (p.github) actionsHtml += `<a href="${p.github}" target="_blank" rel="noopener" class="modal-action primary"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" style="flex-shrink:0"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a>`;
         if (p.demo)   actionsHtml += `<a href="${p.demo}" target="_blank" rel="noopener" class="modal-action">${lblDemo}</a>`;
+        if (p.doc)    actionsHtml += `<a href="${p.doc}" target="_blank" rel="noopener" class="modal-action">${(isEn && p.docLabel_en) ? p.docLabel_en : p.docLabel}</a>`;
         actionsHtml += `</div>`;
     }
 
