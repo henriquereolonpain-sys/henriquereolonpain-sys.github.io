@@ -237,7 +237,14 @@ const INDEXED_TRANS = {
         ['Bronze → Silver → Gold','Bronze → Silver → Gold'],
         ['DRE, EBITDA e fluxo de caixa','P&L, EBITDA and cash flow'],
     ]},
-    vcValues: { sel:'.vc-value', v:[
+    vcDomains: { sel:'.vc-domain', v:[
+        ['Economia','Economics'],
+        ['Geoprocessamento','Geoprocessing'],
+        ['Econometria','Econometrics'],
+        ['Engenharia de Dados','Data Engineering'],
+        ['Finanças Corporativas','Corporate Finance'],
+    ]},
+    vcStacks: { sel:'.vc-stack', v:[
         ['Leaflet · IBGE API · JS','Leaflet · IBGE API · JS'],
         ['Python · Streamlit · DuckDB','Python · Streamlit · DuckDB'],
         ['Python · BigQuery · GH Actions','Python · BigQuery · GH Actions'],
@@ -268,8 +275,8 @@ const INDEXED_TRANS = {
         ['Análise de Vendas','Sales Analysis'],
     ]},
     projDescs: { sel:'.project-desc', v:[
-        ['Cruza 7.300+ notícias com dados oficiais da PRF para mapear acidentes de trânsito em Passo Fundo, com mapa de calor e camadas por severidade.','Cross-references 7,300+ news articles with official PRF records to map traffic accidents in Passo Fundo, with a heat map and severity layers.'],
-        ['Mapa interativo com dados do IBGE cobrindo os 497 municípios do RS, em andamento, com meta de expandir para o Brasil inteiro.','Interactive map with IBGE data covering all 497 municipalities of RS, in progress, with the goal of expanding nationwide.'],
+        ['Cruza 7.300+ notícias com dados oficiais da PRF para mapear acidentes de trânsito em Passo Fundo.','Cross-references 7,300+ news articles with official PRF records to map traffic accidents in Passo Fundo.'],
+        ['Dados do IBGE buscados em lote via API, mapeando renda e desigualdade em todo o RS.','IBGE data fetched in batch via API, mapping income and inequality across all of RS.'],
         ['Pipeline ETL automatizado correlacionando o preço do milho com variáveis climáticas regionais. Data Warehouse no BigQuery com camadas staging e semântica, orquestrado via GitHub Actions. Modelos de regressão com 99% de confiança estatística e p-value de 0,007.','Automated ETL pipeline correlating corn prices with regional climate variables. Data Warehouse on BigQuery with staging and semantic layers, orchestrated via GitHub Actions. Regression models with 99% statistical confidence and p-value of 0.007.'],
         ['Motor de recomendação financeiro com banco de dados orientado a grafos (Neo4j AuraDB), modelando rede de relacionamentos entre cooperados. Filtro colaborativo implementado diretamente no banco para identificar clusters por similaridade de consumo e faixa de renda.','Financial recommendation engine with graph database (Neo4j AuraDB), modeling the relationship network between cooperative members. Collaborative filter implemented directly in the database to identify clusters by consumption similarity and income range.'],
         ['Pipeline completo de Machine Learning para previsão de resultados do Campeonato Brasileiro. Comparação de múltiplos algoritmos (Random Forest, Regressão Logística, Naive Bayes) com feature engineering, treinamento e avaliação por matriz de confusão.','Complete Machine Learning pipeline for predicting Brazilian Championship results. Comparison of multiple algorithms (Random Forest, Logistic Regression, Naive Bayes) with feature engineering, training and confusion matrix evaluation.'],
@@ -730,11 +737,23 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// Open modal via project card or button click
-document.querySelectorAll('[data-id]').forEach(el => {
+// Open modal via project card click
+document.querySelectorAll('[data-id]:not(.btn-project)').forEach(el => {
     el.addEventListener('click', (e) => {
         e.stopPropagation();
         openModal(el.dataset.id);
+    });
+});
+
+// "Ver Projeto →" pula direto pro link do projeto (demo > embed > github), sem passar pelo modal
+document.querySelectorAll('.btn-project').forEach(el => {
+    el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const p = PROJECTS[el.dataset.id];
+        if (!p) return;
+        const embed = (currentLang === 'en' && p.embed_en) ? p.embed_en : p.embed;
+        const url = p.demo || embed || p.github;
+        if (url) window.open(url, '_blank', 'noopener');
     });
 });
 

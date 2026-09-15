@@ -287,6 +287,13 @@ img { display: block; max-width: 100%; }
 .vc-label { font-size: .8125rem; font-weight: 700; color: var(--text); margin-bottom: .3rem; }
 .vc-desc { font-size: .75rem; color: var(--text-light); line-height: 1.35; margin-bottom: .3rem; }
 .vc-value { font-size: .68rem; color: var(--text-light); opacity: .75; }
+.vc-domain { font-weight: 700; opacity: 1; }
+.vc-1 .vc-domain { color: #2563eb; }
+.vc-2 .vc-domain { color: #7c3aed; }
+.vc-3 .vc-domain { color: #059669; }
+.vc-4 .vc-domain { color: #d97706; }
+.vc-5 .vc-domain { color: #e05729; }
+[data-theme="dark"] .vc-5 .vc-domain { color: #f97316; }
 
 .visual-card[data-id] { cursor: pointer; }
 .visual-card[data-id]:hover { box-shadow: var(--shadow-md); transform: translateX(4px); }
