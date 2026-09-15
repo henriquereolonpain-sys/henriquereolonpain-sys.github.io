@@ -54,6 +54,7 @@
 
 [data-theme="dark"] .visual-card { background: #1e2d47; border-color: #2d4270; }
 [data-theme="dark"] .vc-label { color: #e2e8f0; }
+[data-theme="dark"] .vc-desc { color: #b8c7db; }
 [data-theme="dark"] .vc-value { color: #93b0cf; }
 [data-theme="dark"] .vc-1 { border-left-color: #3b82f6; }
 [data-theme="dark"] .vc-2 { border-left-color: #a78bfa; }
@@ -283,8 +284,9 @@ img { display: block; max-width: 100%; }
 
 @keyframes slideInRight { from { opacity:0; transform:translateX(24px); } to { opacity:1; transform:translateX(0); } }
 
-.vc-label { font-size: .8125rem; font-weight: 700; color: var(--text); margin-bottom: .35rem; }
-.vc-value { font-size: .75rem; color: var(--text-light); }
+.vc-label { font-size: .8125rem; font-weight: 700; color: var(--text); margin-bottom: .3rem; }
+.vc-desc { font-size: .75rem; color: var(--text-light); line-height: 1.35; margin-bottom: .3rem; }
+.vc-value { font-size: .68rem; color: var(--text-light); opacity: .75; }
 
 .visual-card[data-id] { cursor: pointer; }
 .visual-card[data-id]:hover { box-shadow: var(--shadow-md); transform: translateX(4px); }
@@ -393,6 +395,18 @@ img { display: block; max-width: 100%; }
 }
 @keyframes neon-rotate {
     to { --neon-angle: 360deg; }
+}
+/* Variante azul — mesma animação, cor alinhada ao accent do card em destaque */
+.card-neon-wrap.neon-blue::before,
+.card-neon-wrap.neon-blue::after {
+    background: conic-gradient(from var(--neon-angle),
+        rgba(2,132,199,.30) 0deg,
+        rgba(2,132,199,.30) 210deg,
+        #0ea5e9 280deg,
+        #38bdf8 310deg,
+        #ffffff 330deg,
+        #bae6fd 345deg,
+        rgba(2,132,199,.30) 360deg);
 }
 
 /* --- Selo "Projeto principal · Em andamento" --- */
